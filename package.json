@@ -1,0 +1,17 @@
+{
+  "name": "bank-of-mahesh",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bank of Mahesh — Secure Banking Application Simulator",
+  "scripts": {
+    "install:all": "npm install && npm --prefix server install && npm --prefix client install",
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "build": "npm --prefix server run build && npm --prefix client run build",
+    "start": "npm --prefix server run start",
+    "test": "npm --prefix server run test",
+    "clean": "node clean.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

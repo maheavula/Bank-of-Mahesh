@@ -1,0 +1,19 @@
+# Node modules (NEVER upload or zip node_modules)
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Production build outputs
+dist/
+client/dist/
+server/dist/
+
+# Environment files with secrets
+.env
+server/.env
+
+# Temporary and log files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
