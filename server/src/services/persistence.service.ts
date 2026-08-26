@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import bcrypt from 'bcryptjs';
 import { CONFIG } from '../config.js';
 import { RuntimeData, User, Account, Transaction } from '../types/index.js';
 
@@ -31,18 +30,50 @@ class PersistenceService {
     } else {
       await this.loadState();
     }
+
+    // LAB ONLY: migrate older hashed records into deliberately plaintext lab records.
+    const state = this.getState();
+    let changed = false;
+    for (const user of state.users as Array<User & { passwordHash?: string }>) {
+      if (!user.password) {
+        user.password = 'lab-password';
+        delete user.passwordHash;
+        changed = true;
+      }
+      if (user.name.toLowerCase().includes('mahesh') || user.email.toLowerCase().includes('mahesh')) {
+        user.name = user.name.replace(/mahesh/gi, 'AMR');
+        user.email = user.email.replace(/mahesh/gi, 'amr');
+        changed = true;
+      }
+    }
+    for (const account of state.accounts) {
+      if (account.accountNumber.startsWith('BM')) {
+        account.accountNumber = `BA${account.accountNumber.slice(2)}`;
+        changed = true;
+      }
+    }
+    for (const transaction of state.transactions) {
+      transaction.senderName = transaction.senderName.replace(/mahesh/gi, 'AMR');
+      transaction.receiverName = transaction.receiverName.replace(/mahesh/gi, 'AMR');
+    }
+    for (const auditLog of state.auditLogs) {
+      const rebrandedEmail = auditLog.userEmail.replace(/mahesh/gi, 'amr');
+      if (rebrandedEmail !== auditLog.userEmail) {
+        auditLog.userEmail = rebrandedEmail;
+        changed = true;
+      }
+    }
+    state.metadata.application = 'Bank of AMR';
+    if (changed) await this.saveState(state);
   }
 
   private async generateSeedData(): Promise<RuntimeData> {
     const now = new Date().toISOString();
-    const adminPasswordHash = await bcrypt.hash('Admin@12345', 10);
-    const customerPasswordHash = await bcrypt.hash('Customer@12345', 10);
-
     const adminUser: User = {
       id: 'USR-10001',
       name: 'System Admin',
-      email: 'admin@bankofmahesh.local',
-      passwordHash: adminPasswordHash,
+      email: 'admin@bankofamr.local',
+      password: 'Admin#2026!SecuredP@ss',
       role: 'admin',
       status: 'active',
       phone: '+91 9876543210',
@@ -51,11 +82,11 @@ class PersistenceService {
       lastLoginAt: now
     };
 
-    const maheshUser: User = {
+    const amrUser: User = {
       id: 'USR-10002',
-      name: 'Mahesh Kumar',
-      email: 'customer@bankofmahesh.local',
-      passwordHash: customerPasswordHash,
+      name: 'AMR Kumar',
+      email: 'customer@bankofamr.local',
+      password: 'AmrCust#2026!Kumar',
       role: 'customer',
       status: 'active',
       phone: '+91 9812345678',
@@ -67,8 +98,8 @@ class PersistenceService {
     const priyaUser: User = {
       id: 'USR-10003',
       name: 'Priya Sharma',
-      email: 'priya@bankofmahesh.local',
-      passwordHash: customerPasswordHash,
+      email: 'priya@bankofamr.local',
+      password: 'Priya#Pass2026',
       role: 'customer',
       status: 'active',
       phone: '+91 9823456789',
@@ -80,8 +111,8 @@ class PersistenceService {
     const rahulUser: User = {
       id: 'USR-10004',
       name: 'Rahul Verma',
-      email: 'rahul@bankofmahesh.local',
-      passwordHash: customerPasswordHash,
+      email: 'rahul@bankofamr.local',
+      password: 'Rahul#Pass2026',
       role: 'customer',
       status: 'active',
       phone: '+91 9834567890',
@@ -90,10 +121,10 @@ class PersistenceService {
       lastLoginAt: now
     };
 
-    const maheshAccount: Account = {
+    const amrAccount: Account = {
       id: 'ACC-10001',
       userId: 'USR-10002',
-      accountNumber: 'BM7089123456',
+      accountNumber: 'BA7089123456',
       accountType: 'Savings',
       currency: 'INR',
       balance: 12500050, // ₹1,25,000.50
@@ -131,9 +162,9 @@ class PersistenceService {
       {
         id: 'TXN-A1B2C3',
         senderAccountId: priyaAccount.id,
-        receiverAccountId: maheshAccount.id,
+        receiverAccountId: amrAccount.id,
         senderName: priyaUser.name,
-        receiverName: maheshUser.name,
+        receiverName: amrUser.name,
         amount: 250000, // ₹2,500.00
         currency: 'INR',
         type: 'transfer',
@@ -143,9 +174,9 @@ class PersistenceService {
       },
       {
         id: 'TXN-D4E5F6',
-        senderAccountId: maheshAccount.id,
+        senderAccountId: amrAccount.id,
         receiverAccountId: rahulAccount.id,
-        senderName: maheshUser.name,
+        senderName: amrUser.name,
         receiverName: rahulUser.name,
         amount: 150000, // ₹1,500.00
         currency: 'INR',
@@ -157,9 +188,9 @@ class PersistenceService {
       {
         id: 'TXN-G7H8I9',
         senderAccountId: rahulAccount.id,
-        receiverAccountId: maheshAccount.id,
+        receiverAccountId: amrAccount.id,
         senderName: rahulUser.name,
-        receiverName: maheshUser.name,
+        receiverName: amrUser.name,
         amount: 500000, // ₹5,000.00
         currency: 'INR',
         type: 'transfer',
@@ -170,8 +201,8 @@ class PersistenceService {
     ];
 
     return {
-      users: [adminUser, maheshUser, priyaUser, rahulUser],
-      accounts: [maheshAccount, priyaAccount, rahulAccount],
+      users: [adminUser, amrUser, priyaUser, rahulUser],
+      accounts: [amrAccount, priyaAccount, rahulAccount],
       transactions: sampleTransactions,
       sessions: [],
       auditLogs: [
@@ -185,7 +216,7 @@ class PersistenceService {
         }
       ],
       metadata: {
-        application: 'Bank of Mahesh',
+        application: 'Bank of AMR',
         version: '1.0.0',
         mode: 'simulation',
         lastSavedAt: now

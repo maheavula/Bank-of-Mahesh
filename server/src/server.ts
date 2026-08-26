@@ -5,8 +5,6 @@ import { CONFIG } from './config.js';
 import { persistenceService } from './services/persistence.service.js';
 import { errorHandler } from './middleware/errorHandler.middleware.js';
 import { securityHeaders } from './middleware/security.middleware.js';
-import { sanitizeInput } from './middleware/sanitize.middleware.js';
-import { rateLimitApi, rateLimitLogin } from './middleware/rateLimit.middleware.js';
 
 // Import exactly 6 logical API groups
 import authRoutes from './routes/auth.routes.js';
@@ -15,10 +13,11 @@ import transactionRoutes from './routes/transaction.routes.js';
 import adminRoutes from './routes/admin.routes.js';
 import sessionRoutes from './routes/session.routes.js';
 import systemRoutes from './routes/system.routes.js';
+import labRoutes from './routes/lab.routes.js';
 
 export const app = express();
 
-// OWASP Security & Hardening Middlewares
+// LAB ONLY: this server intentionally contains insecure patterns for local CTF work.
 app.use(securityHeaders);
 app.use(
   cors({
@@ -30,12 +29,7 @@ app.use(
 );
 app.use(cookieParser());
 app.use(express.json({ limit: '100kb' })); // Max payload size limit to prevent memory buffer overflow DOS
-app.use(sanitizeInput);
-app.use('/api', rateLimitApi);
-
-// API Group Registrations with specific auth rate limiting
-app.use('/api/auth/login', rateLimitLogin);
-app.use('/api/auth/signup', rateLimitLogin);
+// LAB ONLY: input sanitization and rate limiting are deliberately disabled.
 app.use('/api/auth', authRoutes);
 
 app.use('/api/customer', customerRoutes);
@@ -43,6 +37,7 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/session', sessionRoutes);
 app.use('/api/system', systemRoutes);
+app.use('/api/lab', labRoutes);
 
 // Global Error Handler (OWASP error masking - no stack traces exposed)
 app.use(errorHandler);
@@ -54,10 +49,10 @@ async function startServer() {
   if (process.env.NODE_ENV !== 'test') {
     app.listen(CONFIG.PORT, () => {
       console.log(`====================================================`);
-      console.log(`  Bank of Mahesh — Application Server Online `);
+      console.log(`  Bank of AMR — Insecure Training Server Online `);
       console.log(`  Port: ${CONFIG.PORT}`);
       console.log(`  Mode: ${CONFIG.NODE_ENV}`);
-      console.log(`  OWASP Security Controls: ENABLED`);
+      console.log(`  LAB VULNERABILITIES: ENABLED — LOCAL USE ONLY`);
       console.log(`====================================================`);
     });
   }
@@ -65,7 +60,7 @@ async function startServer() {
 
 if (process.env.NODE_ENV !== 'test' && !process.env.VITEST) {
   startServer().catch(err => {
-    console.error('Failed to start Bank of Mahesh server:', err);
+    console.error('Failed to start Bank of AMR lab server:', err);
     process.exit(1);
   });
 }

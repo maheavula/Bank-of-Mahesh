@@ -49,7 +49,7 @@ export const AdminLayout: React.FC = () => {
             </div>
             <div className="text-[10px] font-mono tracking-wider uppercase text-cyan-400 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
-              Bank of Mahesh
+              Bank of AMR
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@ export const AdminLayout: React.FC = () => {
         <div className="md:hidden fixed inset-0 z-50 bg-space-950/95 backdrop-blur-2xl p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-8">
-              <div className="font-bold text-lg text-cyan-400">Bank of Mahesh — Admin</div>
+              <div className="font-bold text-lg text-cyan-400">Bank of AMR — Admin</div>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <X className="w-6 h-6 text-slate-400" />
               </button>
@@ -164,7 +164,7 @@ export const AdminLayout: React.FC = () => {
             <span className="px-2.5 py-1 rounded-md bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 font-mono text-[11px] font-bold tracking-wide">
               ADMIN CONTROL CENTER
             </span>
-            <span className="text-slate-300">Bank of Mahesh Operations & Risk Audit Console</span>
+            <span className="text-slate-300">Bank of AMR Operations & Risk Audit Console</span>
           </div>
 
           <div className="flex items-center gap-2">

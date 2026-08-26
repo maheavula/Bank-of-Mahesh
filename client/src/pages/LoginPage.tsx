@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Lock, Mail, Eye, EyeOff, ShieldCheck, UserCheck, Key, ArrowRight } from 'lucide-react';
+import { Lock, Mail, Eye, EyeOff, ArrowRight, X, KeyRound } from 'lucide-react';
 import { SpatialCard } from '../components/common/SpatialCard.js';
 import { Input } from '../components/common/Input.js';
 import { Button } from '../components/common/Button.js';
 import { useAuth } from '../context/AuthContext.js';
 import { useToast } from '../context/ToastContext.js';
+import { authApi } from '../services/api.js';
 
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -16,6 +17,14 @@ export const LoginPage: React.FC = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  // Reset password state
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showResetPassword, setShowResetPassword] = useState(false);
+  const [isResetLoading, setIsResetLoading] = useState(false);
 
   React.useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -46,16 +55,46 @@ export const LoginPage: React.FC = () => {
     }
   };
 
-  const autofillDemoCustomer = () => {
-    setEmail('customer@bankofmahesh.local');
-    setPassword('Customer@12345');
-    showToast('Customer account loaded!', 'info');
-  };
+  const handleResetSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!resetEmail || !newPassword || !confirmPassword) {
+      showToast('Please fill in all required reset fields.', 'error');
+      return;
+    }
 
-  const autofillDemoAdmin = () => {
-    setEmail('admin@bankofmahesh.local');
-    setPassword('Admin@12345');
-    showToast('Admin account loaded!', 'info');
+    if (newPassword !== confirmPassword) {
+      showToast('New password and confirmation do not match.', 'error');
+      return;
+    }
+
+    if (newPassword.length < 6) {
+      showToast('Password must be at least 6 characters long.', 'error');
+      return;
+    }
+
+    setIsResetLoading(true);
+    try {
+      const res = await authApi.resetPassword({
+        email: resetEmail,
+        newPassword,
+        confirmPassword
+      });
+
+      if (res.success) {
+        showToast(res.message || 'Password reset successfully!', 'success', 'Password Updated');
+        setEmail(resetEmail);
+        setIsResetModalOpen(false);
+        setNewPassword('');
+        setConfirmPassword('');
+      } else {
+        showToast(res.error?.message || 'Failed to reset password.', 'error');
+      }
+    } catch (err: any) {
+      const errMsg = err?.response?.data?.error?.message || err?.message || 'Failed to reset password.';
+      showToast(errMsg, 'error');
+    } finally {
+      setIsResetLoading(false);
+    }
   };
 
   return (
@@ -71,7 +110,7 @@ export const LoginPage: React.FC = () => {
             </div>
           </Link>
           <h1 className="text-2xl md:text-3xl font-extrabold text-white font-sans tracking-tight">
-            Welcome back to Bank of Mahesh
+            Welcome back to Bank of AMR
           </h1>
           <p className="text-xs text-slate-400 max-w-xs mx-auto">
             Secure portal access to your private banking account.
@@ -84,16 +123,30 @@ export const LoginPage: React.FC = () => {
             <Input
               label="Email Address"
               type="email"
-              placeholder="customer@bankofmahesh.local"
+              placeholder="name@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               leftIcon={<Mail className="w-4 h-4" />}
               required
             />
 
-            <div className="space-y-1">
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <label className="block text-xs font-medium text-slate-300">
+                  Password
+                </label>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setResetEmail(email);
+                    setIsResetModalOpen(true);
+                  }}
+                  className="text-xs text-emerald-400 font-medium hover:text-emerald-300 hover:underline focus:outline-none transition-colors"
+                >
+                  Forgot password?
+                </button>
+              </div>
               <Input
-                label="Password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="••••••••••••"
                 value={password}
@@ -122,45 +175,6 @@ export const LoginPage: React.FC = () => {
               Sign In to Account
             </Button>
           </form>
-
-          {/* Instant Quick Credentials Picker */}
-          <div className="mt-8 pt-6 border-t border-white/10">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-semibold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
-                <Key className="w-3.5 h-3.5 text-emerald-400" />
-                Instant Quick Login
-              </span>
-              <span className="text-[10px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 font-bold">
-                1-CLICK FILL
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={autofillDemoCustomer}
-                className="p-3 rounded-xl bg-space-850 hover:bg-space-800 border border-white/10 text-left transition-all hover:border-emerald-500/40 group"
-              >
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-200 group-hover:text-emerald-400">
-                  <UserCheck className="w-3.5 h-3.5" />
-                  <span>Customer Account</span>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 truncate">customer@bank...</div>
-              </button>
-
-              <button
-                type="button"
-                onClick={autofillDemoAdmin}
-                className="p-3 rounded-xl bg-space-850 hover:bg-space-800 border border-white/10 text-left transition-all hover:border-cyan-500/40 group"
-              >
-                <div className="flex items-center gap-2 text-xs font-bold text-slate-200 group-hover:text-cyan-400">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Admin Account</span>
-                </div>
-                <div className="text-[11px] text-slate-400 mt-1 truncate">admin@bankof...</div>
-              </button>
-            </div>
-          </div>
         </SpatialCard>
 
         {/* Footer Link to Signup */}
@@ -171,6 +185,96 @@ export const LoginPage: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      {/* Password Reset Modal */}
+      {isResetModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md animate-fade-in">
+          <div className="max-w-md w-full relative">
+            <SpatialCard className="p-6 md:p-8 shadow-2xl border-emerald-500/30 relative">
+              <button
+                type="button"
+                onClick={() => setIsResetModalOpen(false)}
+                className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors p-1"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="space-y-2 mb-6 text-center">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto mb-3">
+                  <KeyRound className="w-6 h-6" />
+                </div>
+                <h2 className="text-xl font-extrabold text-white">Reset Your Password</h2>
+                <p className="text-xs text-slate-400">
+                  Enter your registered email address and choose a new password.
+                </p>
+              </div>
+
+              <form onSubmit={handleResetSubmit} className="space-y-4">
+                <Input
+                  label="Registered Email Address"
+                  type="email"
+                  placeholder="name@example.com"
+                  value={resetEmail}
+                  onChange={(e) => setResetEmail(e.target.value)}
+                  leftIcon={<Mail className="w-4 h-4" />}
+                  required
+                />
+
+                <Input
+                  label="New Password"
+                  type={showResetPassword ? 'text' : 'password'}
+                  placeholder="At least 6 characters"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  leftIcon={<Lock className="w-4 h-4" />}
+                  rightIcon={
+                    <button
+                      type="button"
+                      onClick={() => setShowResetPassword(!showResetPassword)}
+                      className="focus:outline-none hover:text-slate-200 transition-colors"
+                    >
+                      {showResetPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                    </button>
+                  }
+                  required
+                />
+
+                <Input
+                  label="Confirm New Password"
+                  type={showResetPassword ? 'text' : 'password'}
+                  placeholder="Repeat new password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  leftIcon={<Lock className="w-4 h-4" />}
+                  required
+                />
+
+                <div className="flex items-center gap-3 pt-2">
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    size="md"
+                    className="w-1/2"
+                    onClick={() => setIsResetModalOpen(false)}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    size="md"
+                    className="w-1/2"
+                    isLoading={isResetLoading}
+                  >
+                    Reset Password
+                  </Button>
+                </div>
+              </form>
+            </SpatialCard>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
+

@@ -1,5 +1,5 @@
 # Product Requirements Document (PRD)
-## Bank of Mahesh — Secure Banking Application
+## Bank of AMR — Superseded Secure Application Design
 
 **Document Version**: 1.0.0  
 **Date**: August 11, 2026  
@@ -9,7 +9,7 @@
 
 ## 1. Product Overview & Vision
 
-**Bank of Mahesh** is an end-to-end, high-performance private banking application built with a futuristic **Spatial UI design system**. The application provides full digital banking capabilities—including customer onboarding, instant money transfers, real-time balance tracking, executive statement ledgers, security centers, and administrative operations consoles.
+**Bank of AMR** is now an intentionally insecure local cybersecurity training lab. See `SECURITY_LAB_MATRIX.md` for the active curriculum and defensive guidance.
 
 The platform is built with strict OWASP Top 10 security standards, 5-minute rolling idle session timeout policies, server-side session management, integer paise financial accuracy, and an atomic file-persistence engine (`/data/runtime.json`).
 
@@ -39,7 +39,7 @@ The platform is built with strict OWASP Top 10 security standards, 5-minute roll
 ## 3. Technology Stack & Technical Architecture
 
 ```text
-Bank of Mahesh Architecture
+Bank of AMR Architecture
 │
 ├── Frontend (Client)
 │   ├── Framework: React 18 + TypeScript + Vite
@@ -122,14 +122,9 @@ The backend architecture strictly partitions all capabilities into **6 logical A
 
 ---
 
-## 7. Pre-Configured Test Credentials & Accounts
+## 7. Lab credentials
 
-| Role | Email | Password | Account Number | Initial Balance |
-| :--- | :--- | :--- | :--- | :--- |
-| **Admin** | `admin@bankofmahesh.local` | `Admin@12345` | N/A | N/A |
-| **Demo Customer** | `customer@bankofmahesh.local` | `Customer@12345` | `BM7089123456` | ₹1,25,000.50 |
-| **Priya Sharma** | `priya@bankofmahesh.local` | `Customer@12345` | `BM8823948210` | ₹85,400.00 |
-| **Rahul Verma** | `rahul@bankofmahesh.local` | `Customer@12345` | `BM3349182740` | ₹2,10,000.00 |
+No credentials are published or prefilled. Use disposable identities only.
 
 ---
 

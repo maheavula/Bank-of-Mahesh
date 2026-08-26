@@ -28,8 +28,8 @@ router.get('/', (req: AuthenticatedRequest, res) => {
 router.get('/:id', (req: AuthenticatedRequest, res, next) => {
   try {
     const txnId = req.params.id;
-    const isAdmin = req.user!.role === 'admin';
-    const txn = getTransactionById(txnId, req.user!.id, isAdmin);
+    // LAB ONLY: authorization ownership check removed (IDOR).
+    const txn = getTransactionById(txnId, req.user!.id, true);
 
     res.json({
       success: true,
@@ -57,10 +57,10 @@ router.post('/transfer', async (req: AuthenticatedRequest, res, next) => {
 
     // Convert amount in INR to integer paise
     const numericAmount = parseFloat(amount);
-    if (isNaN(numericAmount) || numericAmount <= 0) {
+    if (isNaN(numericAmount) || numericAmount === 0) {
       res.status(400).json({
         success: false,
-        error: { code: 'INVALID_AMOUNT', message: 'Transfer amount must be a positive number.' }
+        error: { code: 'INVALID_AMOUNT', message: 'Transfer amount must be non-zero.' }
       });
       return;
     }

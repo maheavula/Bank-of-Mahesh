@@ -33,11 +33,6 @@ export const SignupPage: React.FC = () => {
       return;
     }
 
-    if (password.length < 6) {
-      showToast('Password must be at least 6 characters.', 'error');
-      return;
-    }
-
     setIsLoading(true);
     try {
       await signup({ name, email, phone, password, confirmPassword });
@@ -62,7 +57,7 @@ export const SignupPage: React.FC = () => {
             </div>
           </Link>
           <h1 className="text-2xl md:text-3xl font-extrabold text-white font-sans tracking-tight">
-            Open your Bank of Mahesh Account
+            Open your Bank of AMR Account
           </h1>
           <p className="text-xs text-slate-400 max-w-sm mx-auto">
             Instant online registration with a Savings Account credited with ₹10,000.00 starting balance.
@@ -75,7 +70,7 @@ export const SignupPage: React.FC = () => {
             <Input
               label="Full Legal Name"
               type="text"
-              placeholder="e.g. Mahesh Kumar"
+              placeholder="e.g. Your name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               leftIcon={<User className="w-4 h-4" />}
@@ -108,7 +103,7 @@ export const SignupPage: React.FC = () => {
               <Input
                 label="Password"
                 type={showPassword ? 'text' : 'password'}
-                placeholder="At least 6 chars"
+                placeholder="Choose a password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 leftIcon={<Lock className="w-4 h-4" />}

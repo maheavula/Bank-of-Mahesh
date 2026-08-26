@@ -60,7 +60,7 @@ export const LandingPage: React.FC = () => {
           </div>
           <div>
             <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-200 to-emerald-400 bg-clip-text text-transparent font-sans">
-              Bank of Mahesh
+              Bank of AMR
             </span>
           </div>
         </div>
@@ -124,7 +124,7 @@ export const LandingPage: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-extrabold tracking-widest text-sm uppercase text-slate-100">
-                    Bank of Mahesh
+                    Bank of AMR
                   </div>
                   <div className="text-[10px] font-mono tracking-wider text-emerald-300 uppercase">
                     VIP RESERVE SAVINGS
@@ -249,10 +249,10 @@ export const LandingPage: React.FC = () => {
       <footer className="border-t border-white/10 py-8 px-6 md:px-12 bg-space-950/90 backdrop-blur-xl text-center text-xs text-slate-500 z-10">
         <div className="max-w-4xl mx-auto space-y-2">
           <p className="font-bold text-slate-300 text-sm">
-            Bank of Mahesh — Secure Banking Application
+            Bank of AMR — Private Banking Portal
           </p>
           <p className="text-slate-500">
-            © 2026 Bank of Mahesh. All rights reserved. Next-generation spatial financial platform.
+            © 2026 Bank of AMR. All rights reserved.
           </p>
         </div>
       </footer>

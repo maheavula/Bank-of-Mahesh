@@ -36,7 +36,7 @@ export const AdminDashboardPage: React.FC = () => {
           Executive Operations Console
         </h1>
         <p className="text-sm text-slate-400">
-          Systemic oversight of all Bank of Mahesh accounts, balances, transactions, and risks.
+          Systemic oversight of all Bank of AMR accounts, balances, transactions, and risks.
         </p>
       </div>
 

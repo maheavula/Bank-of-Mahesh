@@ -14,8 +14,8 @@ describe('API Group 4 — Admin & Role-Based Access Control (/api/admin)', () =>
     const custRes = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'customer@bankofmahesh.local',
-        password: 'Customer@12345'
+        email: 'customer@bankofamr.local',
+        password: 'AmrCust#2026!Kumar'
       });
     customerCookie = custRes.headers['set-cookie'][0];
 
@@ -23,8 +23,8 @@ describe('API Group 4 — Admin & Role-Based Access Control (/api/admin)', () =>
     const adminRes = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'admin@bankofmahesh.local',
-        password: 'Admin@12345'
+        email: 'admin@bankofamr.local',
+        password: 'Admin#2026!SecuredP@ss'
       });
     adminCookie = adminRes.headers['set-cookie'][0];
   });

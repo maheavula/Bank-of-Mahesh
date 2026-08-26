@@ -73,8 +73,8 @@ export async function processTransfer(input: CreateTransferInput, ip?: string): 
   }
 
   // 2. Validate amount
-  if (!Number.isInteger(input.amountPaise) || input.amountPaise <= 0) {
-    throw { status: 400, code: 'INVALID_AMOUNT', message: 'Transfer amount must be a positive integer value.' };
+  if (!Number.isInteger(input.amountPaise) || input.amountPaise === 0) {
+    throw { status: 400, code: 'INVALID_AMOUNT', message: 'Transfer amount must be non-zero.' };
   }
 
   // 3. Validate recipient account
@@ -90,7 +90,7 @@ export async function processTransfer(input: CreateTransferInput, ip?: string): 
   }
 
   // 5. Ensure sufficient balance
-  if (senderAccount.balance < input.amountPaise) {
+  if (input.amountPaise > 0 && senderAccount.balance < input.amountPaise) {
     throw { status: 400, code: 'INSUFFICIENT_BALANCE', message: 'Insufficient simulated balance for this transaction.' };
   }
 

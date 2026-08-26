@@ -155,7 +155,7 @@ export const TransferPage: React.FC = () => {
           Instant Transfer Money
         </h1>
         <p className="text-sm text-slate-400">
-          Transfer funds instantly to any Bank of Mahesh account holder.
+          Transfer funds instantly to any Bank of AMR account holder.
         </p>
       </div>
 
@@ -188,7 +188,7 @@ export const TransferPage: React.FC = () => {
             placeholder="e.g. BM8823948210"
             value={recipient}
             onChange={(e) => setRecipient(e.target.value)}
-            helperText="Enter recipient Bank of Mahesh account number."
+            helperText="Enter recipient Bank of AMR account number."
             required
           />
 

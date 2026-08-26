@@ -1,5 +1,5 @@
 import { Router, Response } from 'express';
-import { signupCustomer, loginUser, logoutUser } from '../services/auth.service.js';
+import { signupCustomer, loginUser, logoutUser, resetPassword } from '../services/auth.service.js';
 import { requireAuth, AuthenticatedRequest } from '../middleware/auth.middleware.js';
 import { sanitizeUser } from '../services/session.service.js';
 
@@ -127,6 +127,24 @@ router.get('/me', requireAuth, (req: AuthenticatedRequest, res) => {
       session: req.session
     }
   });
+});
+
+/**
+ * POST /api/auth/reset-password
+ */
+router.post('/reset-password', async (req, res, next) => {
+  try {
+    const { email, newPassword, confirmPassword } = req.body;
+    const ip = req.ip || req.socket.remoteAddress;
+
+    const result = await resetPassword({ email, newPassword, confirmPassword }, ip);
+    res.json({
+      success: true,
+      message: result.message
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 export default router;

@@ -26,9 +26,9 @@ router.get('/info', (_req, res) => {
   res.json({
     success: true,
     data: {
-      application: 'Bank of Mahesh',
-      subtitle: 'Secure Banking Application Simulator',
-      mode: 'simulation',
+      application: 'Bank of AMR',
+      subtitle: 'Intentionally Insecure Local Cybersecurity Training Lab',
+      mode: 'local-training-lab',
       version: state.metadata.version || '1.0.0',
       lastDataSave: state.metadata.lastSavedAt,
       notice: 'This is a self-contained banking simulator for demonstration purposes. No real bank accounts or financial transactions are involved.'

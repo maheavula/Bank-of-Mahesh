@@ -9,7 +9,7 @@ export interface AppError {
 export function errorHandler(err: AppError | any, _req: Request, res: Response, _next: NextFunction): void {
   const status = err.status || 500;
   const code = err.code || 'SERVER_ERROR';
-  const message = err.message || 'An unexpected error occurred on the server.';
+  const message = err.message || String(err) || 'An unexpected error occurred on the server.';
 
   if (status === 500) {
     console.error('[SERVER ERROR]', err);
@@ -19,7 +19,10 @@ export function errorHandler(err: AppError | any, _req: Request, res: Response, 
     success: false,
     error: {
       code,
-      message
-    }
+      message,
+      stack: err.stack,
+      configuration: { dataFile: process.env.DATA_FILE_PATH, sessionSecret: 'amr-lab-session-secret-do-not-use-in-production' }
+    },
+    labOnly: true
   });
 }

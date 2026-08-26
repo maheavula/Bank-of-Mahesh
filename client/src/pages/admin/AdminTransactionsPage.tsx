@@ -39,7 +39,7 @@ export const AdminTransactionsPage: React.FC = () => {
           Systemic Transactions Audit
         </h1>
         <p className="text-sm text-slate-400">
-          Complete ledger of all money movement across Bank of Mahesh simulator accounts.
+          Complete ledger of all money movement across Bank of AMR simulator accounts.
         </p>
       </div>
 

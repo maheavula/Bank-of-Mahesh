@@ -41,7 +41,7 @@ export const CustomerLayout: React.FC = () => {
     },
     {
       id: '2',
-      title: 'Welcome to Bank of Mahesh',
+      title: 'Welcome to Bank of AMR',
       message: 'Your VIP Reserve Savings Account is active and ready for instant transfers.',
       time: 'Today',
       unread: true,
@@ -103,7 +103,7 @@ export const CustomerLayout: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-base font-extrabold text-white font-sans">Account Notifications</h3>
-                  <p className="text-[11px] text-slate-400">Bank of Mahesh Security & System Alerts</p>
+                  <p className="text-[11px] text-slate-400">Bank of AMR Security & System Alerts</p>
                 </div>
               </div>
 
@@ -163,7 +163,7 @@ export const CustomerLayout: React.FC = () => {
           </div>
           <div>
             <div className="font-extrabold text-base tracking-tight font-sans bg-gradient-to-r from-white via-slate-200 to-emerald-400 bg-clip-text text-transparent">
-              Bank of Mahesh
+              Bank of AMR
             </div>
             <div className="text-[10px] font-semibold tracking-wider uppercase text-emerald-400 flex items-center gap-1">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -249,7 +249,7 @@ export const CustomerLayout: React.FC = () => {
         <div className="md:hidden fixed inset-0 z-50 bg-space-950/95 backdrop-blur-2xl p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-8">
-              <div className="font-bold text-lg text-emerald-400">Bank of Mahesh</div>
+              <div className="font-bold text-lg text-emerald-400">Bank of AMR</div>
               <button onClick={() => setMobileMenuOpen(false)}>
                 <X className="w-6 h-6 text-slate-400" />
               </button>
@@ -294,7 +294,7 @@ export const CustomerLayout: React.FC = () => {
             <span className="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono text-[11px] font-semibold tracking-wide">
               VIP PORTAL
             </span>
-            <span className="text-slate-300">Bank of Mahesh — Private Banking Terminal</span>
+            <span className="text-slate-300">Bank of AMR — Private Banking Terminal</span>
           </div>
 
           <div className="flex items-center gap-4">

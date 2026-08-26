@@ -72,6 +72,7 @@ export async function destroyAllUserSessions(userId: string): Promise<void> {
 }
 
 export function sanitizeUser(user: User) {
-  const { passwordHash, ...publicUser } = user;
+  // LAB ONLY: exposing the plaintext password demonstrates sensitive-data exposure.
+  const publicUser = user;
   return publicUser;
 }

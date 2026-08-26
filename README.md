@@ -1,12 +1,12 @@
-# Bank of Mahesh — Secure Banking Application Simulator
+# Bank of AMR — Secure Banking Portal
 
-> **Notice**: Bank of Mahesh is a self-contained banking application simulator built for demonstration, architectural, and security evaluation purposes. It does **not** connect to real financial institutions, payment gateways, card networks, or live UPI/NEFT services. All balances and transactions are purely simulated within `runtime.json`.
+> **Notice**: Bank of AMR runs in a local environment. It does not connect to real financial services and must never contain real data.
 
 ---
 
 ## Executive Summary
 
-**Bank of Mahesh** is a full-stack futuristic fintech banking simulator featuring a Spatial UI visual aesthetic, server-side HTTP-only session management, role-based authorization, atomic JSON file persistence, integer paise monetary calculations, and exactly 6 logical backend API domains.
+**Bank of AMR** is a full-stack financial management simulator. Its API endpoints, validation steps, and system architecture are documented below.
 
 ---
 
@@ -25,23 +25,15 @@ The backend strictly exposes six logical API groups:
 
 ---
 
-## Pre-Configured Demo Credentials
+## Credentials and Access
 
-On first launch, if `/data/runtime.json` does not exist or is empty, the system automatically initializes with pre-configured seed data:
-
-### 1. System Administrator
-- **Email**: `admin@bankofmahesh.local`
-- **Password**: `Admin@12345`
-- **Role**: `admin`
-- **Access**: Full access to `/admin` operations console, customer suspension, systemic metrics.
-
-### 2. Demo Customer
-- **Email**: `customer@bankofmahesh.local`
-- **Password**: `Customer@12345`
-- **Role**: `customer`
-- **Access**: Customer portal `/app`, starting balance ₹1,25,000.50 (`BM7089123456`).
-
-*Tip: The login UI features one-click demo credential autofill buttons.*
+| Role | Name | Email | Password | Password Complexity |
+| :--- | :--- | :--- | :--- | :--- |
+| **Administrator** | System Admin | `admin@bankofamr.local` | `Admin#2026!SecuredP@ss` | High (20 chars, mixed case, numbers, special symbols) |
+| **Customer** | AMR Kumar *(Primary Demo)* | `customer@bankofamr.local` | `AmrCust#2026!Kumar` | Strong (17 chars, mixed case, numbers, special symbols) |
+| **Customer** | Priya Sharma | `priya@bankofamr.local` | `Priya#Pass2026` | Good (14 chars, mixed case, numbers, special symbol) |
+| **Customer** | Rahul Verma | `rahul@bankofamr.local` | `Rahul#Pass2026` | Good (14 chars, mixed case, numbers, special symbol) |
+| **Customer** | AMR | `mahesh@gmail.com` | `Mahesh#Pass2026` | Good (15 chars, mixed case, numbers, special symbol) |
 
 ---
 
@@ -55,7 +47,7 @@ On first launch, if `/data/runtime.json` does not exist or is empty, the system 
 
 ### Backend
 - **Runtime**: Node.js + Express + TypeScript (`tsx`)
-- **Security**: `bcryptjs` password hashing, server-side session store, HTTP-only cookies, SameSite cookies
+- **Security posture**: intentionally insecure; see the lab matrix before testing.
 - **Testing**: Vitest + Supertest integration tests
 - **Persistence**: Atomic file replacement engine writing to `/data/runtime.json`
 
@@ -80,9 +72,9 @@ Example:
   "users": [
     {
       "id": "USR-10002",
-      "name": "Mahesh Kumar",
-      "email": "customer@bankofmahesh.local",
-      "passwordHash": "$2a$10$...",
+      "name": "AMR Kumar",
+      "email": "customer@bankofamr.local",
+      "password": "lab-only-example",
       "role": "customer",
       "status": "active",
       "phone": "+91 9812345678",
@@ -94,7 +86,7 @@ Example:
     {
       "id": "ACC-10001",
       "userId": "USR-10002",
-      "accountNumber": "BM7089123456",
+      "accountNumber": "BA7089123456",
       "accountType": "Savings",
       "currency": "INR",
       "balance": 12500050,
@@ -106,7 +98,7 @@ Example:
   "sessions": [],
   "auditLogs": [],
   "metadata": {
-    "application": "Bank of Mahesh",
+    "application": "Bank of AMR",
     "version": "1.0.0",
     "mode": "simulation",
     "lastSavedAt": "2026-08-11T00:00:00.000Z"
@@ -116,7 +108,7 @@ Example:
 Recipient Name	Account Number	Account Type	Available Balance
 Priya Sharma	BM8823948210	Savings	₹85,400.00
 Rahul Verma	BM3349182740	Checking	₹2,10,000.00
-Mahesh Kumar	BM7089123456	Savings	₹1,25,000.50
+AMR Kumar	BA7089123456	Savings	₹1,25,000.50
 
 
 ```
@@ -158,4 +150,4 @@ npm run build
 
 ## License & Disclaimer
 
-Bank of Mahesh is an open demonstration simulator created for educational, portfolio, and security testing purposes.
+Bank of AMR is an intentionally insecure, local-only training simulator.

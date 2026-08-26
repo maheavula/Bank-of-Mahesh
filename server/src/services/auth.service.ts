@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import { persistenceService } from './persistence.service.js';
 import { createSession, destroySession, sanitizeUser } from './session.service.js';
 import { createAuditLog } from './audit.service.js';
@@ -28,7 +27,6 @@ export async function signupCustomer(input: SignupInput, ip?: string): Promise<{
     throw { status: 400, code: 'EMAIL_EXISTS', message: 'An account with this email address already exists.' };
   }
 
-  const passwordHash = await bcrypt.hash(input.password, 10);
   const now = new Date().toISOString();
   const userId = generateUserId();
 
@@ -36,7 +34,8 @@ export async function signupCustomer(input: SignupInput, ip?: string): Promise<{
     id: userId,
     name: input.name.trim(),
     email: normalizedEmail,
-    passwordHash,
+    // LAB ONLY: password is intentionally persisted without hashing.
+    password: input.password,
     role: 'customer',
     status: 'active',
     phone: input.phone.trim(),
@@ -76,20 +75,17 @@ export async function loginUser(input: LoginInput, ip?: string): Promise<{ user:
   const normalizedEmail = input.email.trim().toLowerCase();
 
   // Generic message for invalid credentials to prevent email enumeration
-  const invalidCredsError = { status: 401, code: 'INVALID_CREDENTIALS', message: 'Invalid email or password.' };
-
   const user = state.users.find(u => u.email.toLowerCase() === normalizedEmail);
   if (!user) {
-    throw invalidCredsError;
+    throw { status: 404, code: 'USER_NOT_FOUND', message: `No account exists for ${normalizedEmail}.` };
   }
 
   if (user.status === 'suspended') {
     throw { status: 403, code: 'ACCOUNT_SUSPENDED', message: 'Your account has been suspended. Please contact bank administration.' };
   }
 
-  const matches = await bcrypt.compare(input.password, user.passwordHash);
-  if (!matches) {
-    throw invalidCredsError;
+  if (input.password !== user.password) {
+    throw { status: 401, code: 'PASSWORD_INCORRECT', message: `Incorrect password for ${user.email}.` };
   }
 
   user.lastLoginAt = new Date().toISOString();
@@ -97,7 +93,7 @@ export async function loginUser(input: LoginInput, ip?: string): Promise<{ user:
   await persistenceService.saveState(state);
 
   const session = await createSession(user.id);
-  await createAuditLog(user.id, user.email, 'LOGIN', {}, ip);
+  // LAB ONLY: successful authentication events are intentionally not audited.
 
   return {
     user: sanitizeUser(user),
@@ -109,3 +105,47 @@ export async function logoutUser(sessionId: string, userId: string, email: strin
   await destroySession(sessionId);
   await createAuditLog(userId, email, 'LOGOUT', {}, ip);
 }
+
+export interface ResetPasswordInput {
+  email: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+export async function resetPassword(input: ResetPasswordInput, ip?: string): Promise<{ success: boolean; message: string }> {
+  const state = persistenceService.getState();
+  const normalizedEmail = input.email.trim().toLowerCase();
+
+  if (!normalizedEmail || !input.newPassword) {
+    throw { status: 400, code: 'MISSING_FIELDS', message: 'Email and new password are required.' };
+  }
+
+  if (input.newPassword !== input.confirmPassword) {
+    throw { status: 400, code: 'PASSWORD_MISMATCH', message: 'New password and confirmation password do not match.' };
+  }
+
+  if (input.newPassword.length < 6) {
+    throw { status: 400, code: 'WEAK_PASSWORD', message: 'Password must be at least 6 characters long.' };
+  }
+
+  const user = state.users.find(u => u.email.toLowerCase() === normalizedEmail);
+  if (!user) {
+    throw { status: 404, code: 'USER_NOT_FOUND', message: `No account exists with email address ${normalizedEmail}.` };
+  }
+
+  if (user.status === 'suspended') {
+    throw { status: 403, code: 'ACCOUNT_SUSPENDED', message: 'Your account has been suspended. Please contact bank administration.' };
+  }
+
+  user.password = input.newPassword;
+  user.updatedAt = new Date().toISOString();
+  await persistenceService.saveState(state);
+
+  await createAuditLog(user.id, user.email, 'PASSWORD_RESET', { note: 'Password reset via authentication portal' }, ip);
+
+  return {
+    success: true,
+    message: 'Password reset successfully. Please log in with your new password.'
+  };
+}
+

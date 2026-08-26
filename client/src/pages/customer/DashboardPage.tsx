@@ -121,7 +121,7 @@ export const DashboardPage: React.FC = () => {
                 </div>
                 <div>
                   <div className="font-extrabold tracking-widest text-sm font-sans uppercase text-slate-100">
-                    Bank of Mahesh
+                    Bank of AMR
                   </div>
                   <div className="text-[10px] font-mono tracking-wider text-emerald-300 uppercase">
                     {account.accountType} VIP RESERVE

@@ -1,8 +1,8 @@
 {
-  "name": "bank-of-mahesh",
+  "name": "bank-of-amr-security-lab",
   "version": "1.0.0",
   "private": true,
-  "description": "Bank of Mahesh — Secure Banking Application Simulator",
+  "description": "Bank of AMR — intentionally insecure local cybersecurity training lab",
   "scripts": {
     "install:all": "npm install && npm --prefix server install && npm --prefix client install",
     "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",

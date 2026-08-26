@@ -112,7 +112,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         if (res.data.token) {
           localStorage.setItem('bm_token', res.data.token);
         }
-        showToast(`Account created successfully! Welcome to Bank of Mahesh.`, 'success');
+        showToast(`Account created successfully! Welcome to Bank of AMR.`, 'success');
         return res.data.user;
       } else {
         throw new Error(res.error?.message || 'Signup failed');

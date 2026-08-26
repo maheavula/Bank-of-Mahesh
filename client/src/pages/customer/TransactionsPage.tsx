@@ -185,9 +185,11 @@ export const TransactionsPage: React.FC = () => {
               {selectedTxn.description && (
                 <div className="py-2">
                   <span className="text-slate-500 block mb-1">MEMO</span>
-                  <p className="text-slate-200 italic font-sans text-sm bg-space-950 p-3 rounded-xl border border-white/5">
-                    {selectedTxn.description}
-                  </p>
+                  {/* LAB ONLY: saved transfer descriptions are rendered as HTML (stored XSS). */}
+                  <p
+                    className="text-slate-200 italic font-sans text-sm bg-space-950 p-3 rounded-xl border border-white/5"
+                    dangerouslySetInnerHTML={{ __html: selectedTxn.description }}
+                  />
                 </div>
               )}
             </div>

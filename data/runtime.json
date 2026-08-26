@@ -3,125 +3,149 @@
     {
       "id": "USR-10001",
       "name": "System Admin",
-      "email": "admin@bankofmahesh.local",
-      "passwordHash": "$2a$10$Ljw.tHjcTB0iMtM7AmcxXecbhUZDDVB9EicD3oDD2aeEcRgwzJTG6",
+      "email": "admin@bankofamr.local",
       "role": "admin",
       "status": "active",
       "phone": "+91 9876543210",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-11T10:05:53.499Z",
-      "lastLoginAt": "2026-08-11T10:05:53.499Z"
+      "updatedAt": "2026-08-26T04:20:50.146Z",
+      "lastLoginAt": "2026-08-26T04:20:50.146Z",
+      "password": "Admin#2026!SecuredP@ss"
     },
     {
       "id": "USR-10002",
-      "name": "Mahesh Kumar",
-      "email": "customer@bankofmahesh.local",
-      "passwordHash": "$2a$10$YFDBOvpv/B9t2uTYm.uqYON86Zf8WQ5lQGoGro/ETpvXpPP.NKU0K",
+      "name": "AMR Kumar",
+      "email": "customer@bankofamr.local",
       "role": "customer",
       "status": "active",
       "phone": "+91 9812345678",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-11T10:05:53.424Z",
-      "lastLoginAt": "2026-08-11T10:05:53.424Z"
+      "updatedAt": "2026-08-26T04:20:50.132Z",
+      "lastLoginAt": "2026-08-26T04:20:50.132Z",
+      "password": "AmrCust#2026!Kumar"
     },
     {
       "id": "USR-10003",
       "name": "Priya Sharma",
-      "email": "priya@bankofmahesh.local",
-      "passwordHash": "$2a$10$YFDBOvpv/B9t2uTYm.uqYON86Zf8WQ5lQGoGro/ETpvXpPP.NKU0K",
+      "email": "priya@bankofamr.local",
       "role": "customer",
       "status": "active",
       "phone": "+91 9823456789",
       "createdAt": "2026-08-11T05:51:56.763Z",
       "updatedAt": "2026-08-11T05:51:56.763Z",
-      "lastLoginAt": "2026-08-11T05:51:56.763Z"
+      "lastLoginAt": "2026-08-11T05:51:56.763Z",
+      "password": "Priya#Pass2026"
     },
     {
       "id": "USR-10004",
       "name": "Rahul Verma",
-      "email": "rahul@bankofmahesh.local",
-      "passwordHash": "$2a$10$YFDBOvpv/B9t2uTYm.uqYON86Zf8WQ5lQGoGro/ETpvXpPP.NKU0K",
+      "email": "rahul@bankofamr.local",
       "role": "customer",
       "status": "active",
       "phone": "+91 9834567890",
       "createdAt": "2026-08-11T05:51:56.763Z",
       "updatedAt": "2026-08-11T05:51:56.763Z",
-      "lastLoginAt": "2026-08-11T05:51:56.763Z"
+      "lastLoginAt": "2026-08-11T05:51:56.763Z",
+      "password": "Rahul#Pass2026"
     },
     {
       "id": "USR-55355",
       "name": "Test Customer",
       "email": "testuser_1786427517387@example.com",
-      "passwordHash": "$2a$10$IhEM.w6pfJInlzYoyTX.DO8tRf05SXt2uG8pccxr40ApYOUKkVhYq",
       "role": "customer",
       "status": "active",
       "phone": "+91 9999988888",
       "createdAt": "2026-08-11T05:51:57.505Z",
       "updatedAt": "2026-08-11T05:51:57.505Z",
-      "lastLoginAt": "2026-08-11T05:51:57.505Z"
+      "lastLoginAt": "2026-08-11T05:51:57.505Z",
+      "password": "TestCust#2026"
     },
     {
       "id": "USR-83209",
       "name": "Test Customer",
       "email": "testuser_1786427595946@example.com",
-      "passwordHash": "$2a$10$Ec85Zfmn6NkpI95beYtA9OzL3Ryu2BkynlC1cPBQsOmksP5p7Y5L6",
       "role": "customer",
       "status": "active",
       "phone": "+91 9999988888",
       "createdAt": "2026-08-11T05:53:16.037Z",
       "updatedAt": "2026-08-11T05:53:16.037Z",
-      "lastLoginAt": "2026-08-11T05:53:16.037Z"
+      "lastLoginAt": "2026-08-11T05:53:16.037Z",
+      "password": "TestCust#2026"
     },
     {
       "id": "USR-65799",
-      "name": "Mahesh",
-      "email": "mahesh@gmail.com",
-      "passwordHash": "$2a$10$QSnKHMHXPQX5OOEQn6AXXuinQERp3W9dLkJ/./mIrx/Olb0pnW6cm",
+      "name": "AMR",
+      "email": "amr@gmail.com",
       "role": "customer",
       "status": "active",
       "phone": "9876543210",
       "createdAt": "2026-08-11T06:06:43.617Z",
       "updatedAt": "2026-08-11T06:06:43.617Z",
-      "lastLoginAt": "2026-08-11T06:06:43.617Z"
+      "lastLoginAt": "2026-08-11T06:06:43.617Z",
+      "password": "Mahesh#Pass2026"
     },
     {
       "id": "USR-56774",
       "name": "Test Customer",
       "email": "testuser_1786442752308@example.com",
-      "passwordHash": "$2a$10$TBTatQi1TmND4p6g.LWbDu5OVW/4uksM/uoRutEgXZRz.RpjEtCy.",
       "role": "customer",
       "status": "active",
       "phone": "+91 9999988888",
       "createdAt": "2026-08-11T10:05:52.374Z",
       "updatedAt": "2026-08-11T10:05:52.374Z",
-      "lastLoginAt": "2026-08-11T10:05:52.374Z"
+      "lastLoginAt": "2026-08-11T10:05:52.374Z",
+      "password": "TestCust#2026"
+    },
+    {
+      "id": "USR-94865",
+      "name": "Test Customer",
+      "email": "testuser_1787718001869@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T04:20:01.873Z",
+      "updatedAt": "2026-08-26T04:20:01.873Z",
+      "lastLoginAt": "2026-08-26T04:20:01.873Z"
+    },
+    {
+      "id": "USR-37602",
+      "name": "Test Customer",
+      "email": "testuser_1787718048194@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T04:20:48.198Z",
+      "updatedAt": "2026-08-26T04:20:48.198Z",
+      "lastLoginAt": "2026-08-26T04:20:48.198Z"
     }
   ],
   "accounts": [
     {
       "id": "ACC-10001",
       "userId": "USR-10002",
-      "accountNumber": "BM7089123456",
+      "accountNumber": "BA7089123456",
       "accountType": "Savings",
       "currency": "INR",
-      "balance": 12400050,
+      "balance": 12350050,
       "status": "active",
       "createdAt": "2026-08-11T05:51:56.763Z"
     },
     {
       "id": "ACC-10002",
       "userId": "USR-10003",
-      "accountNumber": "BM8823948210",
+      "accountNumber": "BA8823948210",
       "accountType": "Savings",
       "currency": "INR",
-      "balance": 8840000,
+      "balance": 8890000,
       "status": "active",
       "createdAt": "2026-08-11T05:51:56.763Z"
     },
     {
       "id": "ACC-10003",
       "userId": "USR-10004",
-      "accountNumber": "BM3349182740",
+      "accountNumber": "BA3349182740",
       "accountType": "Checking",
       "currency": "INR",
       "balance": 21000000,
@@ -131,7 +155,7 @@
     {
       "id": "ACC-75914",
       "userId": "USR-55355",
-      "accountNumber": "BM9928325717",
+      "accountNumber": "BA9928325717",
       "accountType": "Savings",
       "currency": "INR",
       "balance": 1000000,
@@ -141,7 +165,7 @@
     {
       "id": "ACC-78695",
       "userId": "USR-83209",
-      "accountNumber": "BM1758076078",
+      "accountNumber": "BA1758076078",
       "accountType": "Savings",
       "currency": "INR",
       "balance": 1000000,
@@ -151,7 +175,7 @@
     {
       "id": "ACC-12014",
       "userId": "USR-65799",
-      "accountNumber": "BM6733551617",
+      "accountNumber": "BA6733551617",
       "accountType": "Savings",
       "currency": "INR",
       "balance": 800000,
@@ -161,20 +185,53 @@
     {
       "id": "ACC-53058",
       "userId": "USR-56774",
-      "accountNumber": "BM3082892449",
+      "accountNumber": "BA3082892449",
       "accountType": "Savings",
       "currency": "INR",
       "balance": 1000000,
       "status": "active",
       "createdAt": "2026-08-11T10:05:52.374Z"
+    },
+    {
+      "id": "ACC-18430",
+      "userId": "USR-94865",
+      "accountNumber": "BA6629942473",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T04:20:01.873Z"
+    },
+    {
+      "id": "ACC-98957",
+      "userId": "USR-37602",
+      "accountNumber": "BA3982314300",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T04:20:48.198Z"
     }
   ],
   "transactions": [
     {
+      "id": "TXN-BE415540",
+      "senderAccountId": "ACC-10001",
+      "receiverAccountId": "ACC-10002",
+      "senderName": "AMR Kumar",
+      "receiverName": "Priya Sharma",
+      "amount": 50000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Test transfer for verification",
+      "createdAt": "2026-08-26T04:20:49.131Z"
+    },
+    {
       "id": "TXN-A725F03A",
       "senderAccountId": "ACC-10001",
       "receiverAccountId": "ACC-10002",
-      "senderName": "Mahesh Kumar",
+      "senderName": "AMR Kumar",
       "receiverName": "Priya Sharma",
       "amount": 50000,
       "currency": "INR",
@@ -187,7 +244,7 @@
       "id": "TXN-61079949",
       "senderAccountId": "ACC-12014",
       "receiverAccountId": "ACC-10002",
-      "senderName": "Mahesh",
+      "senderName": "AMR",
       "receiverName": "Priya Sharma",
       "amount": 200000,
       "currency": "INR",
@@ -200,7 +257,7 @@
       "id": "TXN-49733301",
       "senderAccountId": "ACC-10001",
       "receiverAccountId": "ACC-10002",
-      "senderName": "Mahesh Kumar",
+      "senderName": "AMR Kumar",
       "receiverName": "Priya Sharma",
       "amount": 50000,
       "currency": "INR",
@@ -214,7 +271,7 @@
       "senderAccountId": "ACC-10002",
       "receiverAccountId": "ACC-10001",
       "senderName": "Priya Sharma",
-      "receiverName": "Mahesh Kumar",
+      "receiverName": "AMR Kumar",
       "amount": 250000,
       "currency": "INR",
       "type": "transfer",
@@ -226,7 +283,7 @@
       "id": "TXN-D4E5F6",
       "senderAccountId": "ACC-10001",
       "receiverAccountId": "ACC-10003",
-      "senderName": "Mahesh Kumar",
+      "senderName": "AMR Kumar",
       "receiverName": "Rahul Verma",
       "amount": 150000,
       "currency": "INR",
@@ -240,7 +297,7 @@
       "senderAccountId": "ACC-10003",
       "receiverAccountId": "ACC-10001",
       "senderName": "Rahul Verma",
-      "receiverName": "Mahesh Kumar",
+      "receiverName": "AMR Kumar",
       "amount": 500000,
       "currency": "INR",
       "type": "transfer",
@@ -333,13 +390,171 @@
       "createdAt": "2026-08-11T10:05:53.500Z",
       "expiresAt": "2026-08-11T10:10:53.528Z",
       "lastActivityAt": "2026-08-11T10:05:53.528Z"
+    },
+    {
+      "id": "SESS-6cdf30b750bb7f6b0051aca355001fa22b5343be3a631427",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:01.852Z",
+      "expiresAt": "2026-09-02T04:20:01.852Z",
+      "lastActivityAt": "2026-08-26T04:20:01.852Z"
+    },
+    {
+      "id": "SESS-3fcb9ab78d08ace1427adec0dc2572b03a188692938057d4",
+      "userId": "USR-94865",
+      "createdAt": "2026-08-26T04:20:01.874Z",
+      "expiresAt": "2026-09-02T04:20:01.874Z",
+      "lastActivityAt": "2026-08-26T04:20:01.874Z"
+    },
+    {
+      "id": "SESS-4eca6e0c0e148176694c58b2d35723d9ebbe66b20208ccc3",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:01.900Z",
+      "expiresAt": "2026-09-02T04:20:01.900Z",
+      "lastActivityAt": "2026-08-26T04:20:01.900Z"
+    },
+    {
+      "id": "SESS-86b9f9a48553024b5a3e858990e4f0bb79ba4c0596b1599b",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:48.179Z",
+      "expiresAt": "2026-09-02T04:20:48.179Z",
+      "lastActivityAt": "2026-08-26T04:20:48.179Z"
+    },
+    {
+      "id": "SESS-a2f8f626ec4c719ae0f13e0aacb1900a6de6042630067cf6",
+      "userId": "USR-37602",
+      "createdAt": "2026-08-26T04:20:48.199Z",
+      "expiresAt": "2026-09-02T04:20:48.199Z",
+      "lastActivityAt": "2026-08-26T04:20:48.199Z"
+    },
+    {
+      "id": "SESS-b7c2507676cd5cb86b276c84a4ecc0a03ebda643ace31a1b",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:48.219Z",
+      "expiresAt": "2026-09-02T04:20:48.219Z",
+      "lastActivityAt": "2026-08-26T04:20:48.219Z"
+    },
+    {
+      "id": "SESS-cd6146663f03155abebbae6463a1cbf75448a599c18c0679",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:49.113Z",
+      "expiresAt": "2026-09-02T04:20:49.159Z",
+      "lastActivityAt": "2026-08-26T04:20:49.159Z"
+    },
+    {
+      "id": "SESS-60cdbd28fa7ec2105a3b0ed7d3d7b4adf9a642dacf5f0879",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T04:20:50.135Z",
+      "expiresAt": "2026-09-02T04:20:50.156Z",
+      "lastActivityAt": "2026-08-26T04:20:50.156Z"
+    },
+    {
+      "id": "SESS-f7ac57f36bc6ab14444ef8feae862690d8930a017bc6ab9a",
+      "userId": "USR-10001",
+      "createdAt": "2026-08-26T04:20:50.147Z",
+      "expiresAt": "2026-09-02T04:20:50.169Z",
+      "lastActivityAt": "2026-08-26T04:20:50.169Z"
     }
   ],
   "auditLogs": [
     {
+      "id": "AUDIT-650E02B9",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-26T04:20:49.133Z",
+      "metadata": {
+        "transactionId": "TXN-BE415540",
+        "recipientAccount": "BA8823948210",
+        "amountPaise": 50000
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-1B01A7D0",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T04:20:48.227Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-943F68AA",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T04:20:48.210Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-74B30B03",
+      "userId": "USR-37602",
+      "userEmail": "testuser_1787718048194@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T04:20:48.201Z",
+      "metadata": {
+        "accountId": "ACC-98957"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-7C3B449A",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T04:20:01.908Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-EEAD5C37",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T04:20:01.887Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-B2D5235B",
+      "userId": "USR-94865",
+      "userEmail": "testuser_1787718001869@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T04:20:01.875Z",
+      "metadata": {
+        "accountId": "ACC-18430"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-88DBB8FA",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-18T17:42:32.338Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-00700107",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-18T16:59:10.100Z",
+      "ip": "::1"
+    },
+    {
       "id": "AUDIT-AB9AE150",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T10:05:53.502Z",
       "ip": "::ffff:127.0.0.1"
@@ -347,7 +562,7 @@
     {
       "id": "AUDIT-BDF18BDA",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T10:05:53.427Z",
       "ip": "::ffff:127.0.0.1"
@@ -366,7 +581,7 @@
     {
       "id": "AUDIT-23650322",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T10:05:52.230Z",
       "ip": "::ffff:127.0.0.1"
@@ -374,7 +589,7 @@
     {
       "id": "AUDIT-FD75D656",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "TRANSFER",
       "timestamp": "2026-08-11T10:05:51.188Z",
       "metadata": {
@@ -387,7 +602,7 @@
     {
       "id": "AUDIT-594EC3F3",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T10:05:51.171Z",
       "ip": "::ffff:127.0.0.1"
@@ -395,7 +610,7 @@
     {
       "id": "AUDIT-F4E9E634",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T10:02:25.626Z",
       "ip": "::1"
@@ -403,7 +618,7 @@
     {
       "id": "AUDIT-CE4A04F7",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:43:15.644Z",
       "ip": "::1"
@@ -411,7 +626,7 @@
     {
       "id": "AUDIT-71741A5F",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T09:42:09.318Z",
       "ip": "::1"
@@ -419,7 +634,7 @@
     {
       "id": "AUDIT-274443F6",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:37:18.333Z",
       "ip": "::1"
@@ -427,7 +642,7 @@
     {
       "id": "AUDIT-2E70AF23",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T09:37:15.905Z",
       "ip": "::1"
@@ -435,7 +650,7 @@
     {
       "id": "AUDIT-66157777",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:33:22.278Z",
       "ip": "::1"
@@ -443,7 +658,7 @@
     {
       "id": "AUDIT-C5204765",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T09:30:25.766Z",
       "ip": "::1"
@@ -451,7 +666,7 @@
     {
       "id": "AUDIT-35EB76D9",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:29:00.733Z",
       "ip": "::1"
@@ -459,7 +674,7 @@
     {
       "id": "AUDIT-CFD90B7C",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T09:21:29.133Z",
       "ip": "::1"
@@ -467,7 +682,7 @@
     {
       "id": "AUDIT-A7C790CB",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:19:20.031Z",
       "ip": "::1"
@@ -475,7 +690,7 @@
     {
       "id": "AUDIT-F5037483",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T09:17:28.516Z",
       "ip": "::1"
@@ -483,7 +698,7 @@
     {
       "id": "AUDIT-DE848949",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T09:10:14.307Z",
       "ip": "::1"
@@ -491,7 +706,7 @@
     {
       "id": "AUDIT-8CE8EC6D",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T07:12:55.788Z",
       "ip": "::1"
@@ -499,7 +714,7 @@
     {
       "id": "AUDIT-A8BCEFBE",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T07:11:43.694Z",
       "ip": "::1"
@@ -507,7 +722,7 @@
     {
       "id": "AUDIT-532491A3",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "SESSION_EXPIRED",
       "timestamp": "2026-08-11T06:29:32.456Z",
       "metadata": {
@@ -517,7 +732,7 @@
     {
       "id": "AUDIT-54388E3A",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T06:24:09.892Z",
       "ip": "::1"
@@ -525,7 +740,7 @@
     {
       "id": "AUDIT-5DEE6566",
       "userId": "USR-65799",
-      "userEmail": "mahesh@gmail.com",
+      "userEmail": "amr@gmail.com",
       "action": "LOGOUT",
       "timestamp": "2026-08-11T06:23:57.385Z",
       "ip": "::1"
@@ -533,7 +748,7 @@
     {
       "id": "AUDIT-C245ED62",
       "userId": "USR-65799",
-      "userEmail": "mahesh@gmail.com",
+      "userEmail": "amr@gmail.com",
       "action": "TRANSFER",
       "timestamp": "2026-08-11T06:10:20.438Z",
       "metadata": {
@@ -546,7 +761,7 @@
     {
       "id": "AUDIT-0B3A0188",
       "userId": "USR-65799",
-      "userEmail": "mahesh@gmail.com",
+      "userEmail": "amr@gmail.com",
       "action": "SIGNUP",
       "timestamp": "2026-08-11T06:06:43.625Z",
       "metadata": {
@@ -557,7 +772,7 @@
     {
       "id": "AUDIT-A27947FC",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T05:53:17.611Z",
       "ip": "::ffff:127.0.0.1"
@@ -565,7 +780,7 @@
     {
       "id": "AUDIT-49AF2412",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T05:53:17.513Z",
       "ip": "::ffff:127.0.0.1"
@@ -584,7 +799,7 @@
     {
       "id": "AUDIT-2320B31F",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T05:53:15.847Z",
       "ip": "::ffff:127.0.0.1"
@@ -592,7 +807,7 @@
     {
       "id": "AUDIT-E15D53A4",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "TRANSFER",
       "timestamp": "2026-08-11T05:53:14.084Z",
       "metadata": {
@@ -605,7 +820,7 @@
     {
       "id": "AUDIT-ADCFB098",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T05:53:14.056Z",
       "ip": "::ffff:127.0.0.1"
@@ -624,7 +839,7 @@
     {
       "id": "AUDIT-F55757AA",
       "userId": "USR-10002",
-      "userEmail": "customer@bankofmahesh.local",
+      "userEmail": "customer@bankofamr.local",
       "action": "LOGIN",
       "timestamp": "2026-08-11T05:51:57.234Z",
       "ip": "::ffff:127.0.0.1"
@@ -632,7 +847,7 @@
     {
       "id": "AUDIT-INIT",
       "userId": "USR-10001",
-      "userEmail": "admin@bankofmahesh.local",
+      "userEmail": "admin@bankofamr.local",
       "action": "SIGNUP",
       "timestamp": "2026-08-11T05:51:56.763Z",
       "metadata": {
@@ -641,9 +856,9 @@
     }
   ],
   "metadata": {
-    "application": "Bank of Mahesh",
+    "application": "Bank of AMR",
     "version": "1.0.0",
     "mode": "simulation",
-    "lastSavedAt": "2026-08-11T10:05:53.529Z"
+    "lastSavedAt": "2026-08-26T04:20:50.170Z"
   }
 }

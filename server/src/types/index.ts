@@ -5,7 +5,8 @@ export interface User {
   id: string;
   name: string;
   email: string;
-  passwordHash: string;
+  // LAB ONLY: deliberately insecure to support the plaintext-password exercise.
+  password: string;
   role: UserRole;
   status: UserStatus;
   phone: string;
@@ -57,7 +58,7 @@ export interface AuditLog {
   id: string;
   userId: string;
   userEmail: string;
-  action: 'LOGIN' | 'LOGOUT' | 'SIGNUP' | 'TRANSFER' | 'PROFILE_UPDATE' | 'ADMIN_STATUS_CHANGE' | 'SESSION_EXPIRED';
+  action: 'LOGIN' | 'LOGOUT' | 'SIGNUP' | 'TRANSFER' | 'PROFILE_UPDATE' | 'ADMIN_STATUS_CHANGE' | 'SESSION_EXPIRED' | 'PASSWORD_RESET';
   timestamp: string;
   metadata?: Record<string, any>;
   ip?: string;

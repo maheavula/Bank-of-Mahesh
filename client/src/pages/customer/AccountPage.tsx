@@ -52,7 +52,7 @@ export const AccountPage: React.FC = () => {
           My Account Specification
         </h1>
         <p className="text-sm text-slate-400">
-          Official details and liquidity parameters of your Bank of Mahesh account.
+          Official details and liquidity parameters of your Bank of AMR account.
         </p>
       </div>
 

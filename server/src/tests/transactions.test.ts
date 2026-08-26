@@ -9,23 +9,23 @@ describe('API Group 3 — Transactions & Transfer Simulation (/api/transactions)
   beforeAll(async () => {
     await persistenceService.init();
 
-    // Login as Mahesh Kumar
+    // Login as AMR Kumar
     const loginRes = await request(app)
       .post('/api/auth/login')
       .send({
-        email: 'customer@bankofmahesh.local',
-        password: 'Customer@12345'
+        email: 'customer@bankofamr.local',
+        password: 'AmrCust#2026!Kumar'
       });
 
     customerCookie = loginRes.headers['set-cookie'][0];
   });
 
-  it('should process a valid transfer from Mahesh to Priya', async () => {
+  it('should process a valid transfer from AMR to Priya', async () => {
     const res = await request(app)
       .post('/api/transactions/transfer')
       .set('Cookie', customerCookie)
       .send({
-        recipientAccountNumber: 'BM8823948210', // Priya's account
+        recipientAccountNumber: 'BA8823948210', // Priya's account
         amount: 500, // ₹500.00
         description: 'Test transfer for verification'
       });
@@ -41,7 +41,7 @@ describe('API Group 3 — Transactions & Transfer Simulation (/api/transactions)
       .post('/api/transactions/transfer')
       .set('Cookie', customerCookie)
       .send({
-        recipientAccountNumber: 'BM8823948210',
+        recipientAccountNumber: 'BA8823948210',
         amount: 999999999, // Extremely large amount
         description: 'Excessive amount'
       });
@@ -56,7 +56,7 @@ describe('API Group 3 — Transactions & Transfer Simulation (/api/transactions)
       .post('/api/transactions/transfer')
       .set('Cookie', customerCookie)
       .send({
-        recipientAccountNumber: 'BM7089123456', // Mahesh's own account
+        recipientAccountNumber: 'BA7089123456', // AMR's own account
         amount: 100,
         description: 'Self transfer'
       });
@@ -71,7 +71,7 @@ describe('API Group 3 — Transactions & Transfer Simulation (/api/transactions)
       .post('/api/transactions/transfer')
       .set('Cookie', customerCookie)
       .send({
-        recipientAccountNumber: 'BM0000000000',
+        recipientAccountNumber: 'BA0000000000',
         amount: 100,
         description: 'Invalid recipient test'
       });

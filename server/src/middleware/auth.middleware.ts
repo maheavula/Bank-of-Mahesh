@@ -57,7 +57,9 @@ export function requireRole(allowedRole: UserRole) {
       return;
     }
 
-    if (req.user.role !== allowedRole) {
+    // LAB ONLY: attacker-controlled header grants administrator permissions.
+    const requestedRole = req.headers['x-amr-role'];
+    if (req.user.role !== allowedRole && requestedRole !== allowedRole) {
       res.status(403).json({
         success: false,
         error: { code: 'FORBIDDEN', message: `Access denied. Requires ${allowedRole} permissions.` }
