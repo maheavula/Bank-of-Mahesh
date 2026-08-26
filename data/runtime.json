@@ -8,8 +8,8 @@
       "status": "active",
       "phone": "+91 9876543210",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-26T04:20:50.146Z",
-      "lastLoginAt": "2026-08-26T04:20:50.146Z",
+      "updatedAt": "2026-08-26T16:02:28.391Z",
+      "lastLoginAt": "2026-08-26T16:02:28.391Z",
       "password": "Admin#2026!SecuredP@ss"
     },
     {
@@ -20,8 +20,8 @@
       "status": "active",
       "phone": "+91 9812345678",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-26T04:20:50.132Z",
-      "lastLoginAt": "2026-08-26T04:20:50.132Z",
+      "updatedAt": "2026-08-26T16:11:11.818Z",
+      "lastLoginAt": "2026-08-26T16:11:11.818Z",
       "password": "AmrCust#2026!Kumar"
     },
     {
@@ -119,6 +119,54 @@
       "createdAt": "2026-08-26T04:20:48.198Z",
       "updatedAt": "2026-08-26T04:20:48.198Z",
       "lastLoginAt": "2026-08-26T04:20:48.198Z"
+    },
+    {
+      "id": "USR-46408",
+      "name": "Test Customer",
+      "email": "testuser_1787759312116@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T15:48:32.120Z",
+      "updatedAt": "2026-08-26T15:48:32.120Z",
+      "lastLoginAt": "2026-08-26T15:48:32.120Z"
+    },
+    {
+      "id": "USR-17466",
+      "name": "Test Customer",
+      "email": "testuser_1787759792152@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T15:56:32.157Z",
+      "updatedAt": "2026-08-26T15:56:32.157Z",
+      "lastLoginAt": "2026-08-26T15:56:32.157Z"
+    },
+    {
+      "id": "USR-85470",
+      "name": "Test Customer",
+      "email": "testuser_1787759827264@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T15:57:07.271Z",
+      "updatedAt": "2026-08-26T15:57:07.271Z",
+      "lastLoginAt": "2026-08-26T15:57:07.271Z"
+    },
+    {
+      "id": "USR-17884",
+      "name": "Test Customer",
+      "email": "testuser_1787760145319@example.com",
+      "password": "TestPassword@123",
+      "role": "customer",
+      "status": "active",
+      "phone": "+91 9999988888",
+      "createdAt": "2026-08-26T16:02:25.328Z",
+      "updatedAt": "2026-08-26T16:02:25.328Z",
+      "lastLoginAt": "2026-08-26T16:02:25.328Z"
     }
   ],
   "accounts": [
@@ -128,7 +176,7 @@
       "accountNumber": "BA7089123456",
       "accountType": "Savings",
       "currency": "INR",
-      "balance": 12350050,
+      "balance": 12150050,
       "status": "active",
       "createdAt": "2026-08-11T05:51:56.763Z"
     },
@@ -138,7 +186,7 @@
       "accountNumber": "BA8823948210",
       "accountType": "Savings",
       "currency": "INR",
-      "balance": 8890000,
+      "balance": 9090000,
       "status": "active",
       "createdAt": "2026-08-11T05:51:56.763Z"
     },
@@ -211,9 +259,101 @@
       "balance": 1000000,
       "status": "active",
       "createdAt": "2026-08-26T04:20:48.198Z"
+    },
+    {
+      "id": "ACC-38175",
+      "userId": "USR-46408",
+      "accountNumber": "BA8779066269",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T15:48:32.120Z"
+    },
+    {
+      "id": "ACC-56321",
+      "userId": "USR-17466",
+      "accountNumber": "BA9840148414",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T15:56:32.157Z"
+    },
+    {
+      "id": "ACC-93936",
+      "userId": "USR-85470",
+      "accountNumber": "BA6756552525",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T15:57:07.271Z"
+    },
+    {
+      "id": "ACC-72676",
+      "userId": "USR-17884",
+      "accountNumber": "BA4851020320",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1000000,
+      "status": "active",
+      "createdAt": "2026-08-26T16:02:25.328Z"
     }
   ],
   "transactions": [
+    {
+      "id": "TXN-15E0E542",
+      "senderAccountId": "ACC-10001",
+      "receiverAccountId": "ACC-10002",
+      "senderName": "AMR Kumar",
+      "receiverName": "Priya Sharma",
+      "amount": 50000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Test transfer for verification",
+      "createdAt": "2026-08-26T16:02:26.888Z"
+    },
+    {
+      "id": "TXN-72F78089",
+      "senderAccountId": "ACC-10001",
+      "receiverAccountId": "ACC-10002",
+      "senderName": "AMR Kumar",
+      "receiverName": "Priya Sharma",
+      "amount": 50000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Test transfer for verification",
+      "createdAt": "2026-08-26T15:57:08.933Z"
+    },
+    {
+      "id": "TXN-3B7DE4EB",
+      "senderAccountId": "ACC-10001",
+      "receiverAccountId": "ACC-10002",
+      "senderName": "AMR Kumar",
+      "receiverName": "Priya Sharma",
+      "amount": 50000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Test transfer for verification",
+      "createdAt": "2026-08-26T15:56:33.798Z"
+    },
+    {
+      "id": "TXN-DA71BAB1",
+      "senderAccountId": "ACC-10001",
+      "receiverAccountId": "ACC-10002",
+      "senderName": "AMR Kumar",
+      "receiverName": "Priya Sharma",
+      "amount": 50000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Test transfer for verification",
+      "createdAt": "2026-08-26T15:48:33.485Z"
+    },
     {
       "id": "TXN-BE415540",
       "senderAccountId": "ACC-10001",
@@ -453,9 +593,369 @@
       "createdAt": "2026-08-26T04:20:50.147Z",
       "expiresAt": "2026-09-02T04:20:50.169Z",
       "lastActivityAt": "2026-08-26T04:20:50.169Z"
+    },
+    {
+      "id": "SESS-21792b2722aa58f4839f019c4cd0ab5ee1894084b42a2154",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:48:32.093Z",
+      "expiresAt": "2026-09-02T15:48:32.093Z",
+      "lastActivityAt": "2026-08-26T15:48:32.093Z"
+    },
+    {
+      "id": "SESS-9d4df64ceceb72cc9c0ce0654d5067811f9c6dae465fc1a4",
+      "userId": "USR-46408",
+      "createdAt": "2026-08-26T15:48:32.122Z",
+      "expiresAt": "2026-09-02T15:48:32.122Z",
+      "lastActivityAt": "2026-08-26T15:48:32.122Z"
+    },
+    {
+      "id": "SESS-b6e4ce1977ac34fec72bfb756ffde1d601b0a067c7944ae9",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:48:32.145Z",
+      "expiresAt": "2026-09-02T15:48:32.145Z",
+      "lastActivityAt": "2026-08-26T15:48:32.145Z"
+    },
+    {
+      "id": "SESS-f485780d5d0e2f757b5f77ceec74ec489d13fe4ac0091fc8",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:48:33.461Z",
+      "expiresAt": "2026-09-02T15:48:33.521Z",
+      "lastActivityAt": "2026-08-26T15:48:33.521Z"
+    },
+    {
+      "id": "SESS-557b498fae55a03216f7248429340e43cbd18e14d42b3f3b",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:48:34.835Z",
+      "expiresAt": "2026-09-02T15:48:34.865Z",
+      "lastActivityAt": "2026-08-26T15:48:34.865Z"
+    },
+    {
+      "id": "SESS-480064a730f23bccac03bb58986ee5fb9007952f36dd891a",
+      "userId": "USR-10001",
+      "createdAt": "2026-08-26T15:48:34.855Z",
+      "expiresAt": "2026-09-02T15:48:34.887Z",
+      "lastActivityAt": "2026-08-26T15:48:34.887Z"
+    },
+    {
+      "id": "SESS-7165a09af8caa70cc9d5e67541fc920982f52607c3dd578c",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:56:32.128Z",
+      "expiresAt": "2026-09-02T15:56:32.128Z",
+      "lastActivityAt": "2026-08-26T15:56:32.128Z"
+    },
+    {
+      "id": "SESS-e4e8c898dc496bec8313cc8898aa3868dec157dbf5fa53f6",
+      "userId": "USR-17466",
+      "createdAt": "2026-08-26T15:56:32.159Z",
+      "expiresAt": "2026-09-02T15:56:32.159Z",
+      "lastActivityAt": "2026-08-26T15:56:32.159Z"
+    },
+    {
+      "id": "SESS-20ef4004e54f49009cbbd29a79e724ef3985fb9332ec14f5",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:56:32.187Z",
+      "expiresAt": "2026-09-02T15:56:32.187Z",
+      "lastActivityAt": "2026-08-26T15:56:32.187Z"
+    },
+    {
+      "id": "SESS-fde22eebe609f7c8d7aae48990d5cc0b2a97a3416fc00b71",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:56:33.774Z",
+      "expiresAt": "2026-09-02T15:56:33.839Z",
+      "lastActivityAt": "2026-08-26T15:56:33.839Z"
+    },
+    {
+      "id": "SESS-020a687ef63b17dfdb8bf95f1be591c5ea7df6e3c4cffb2d",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:56:35.299Z",
+      "expiresAt": "2026-09-02T15:56:35.331Z",
+      "lastActivityAt": "2026-08-26T15:56:35.331Z"
+    },
+    {
+      "id": "SESS-d28fcc6870f6dd3308c65e2839efcd502e17153cc3a9795d",
+      "userId": "USR-10001",
+      "createdAt": "2026-08-26T15:56:35.319Z",
+      "expiresAt": "2026-09-02T15:56:35.373Z",
+      "lastActivityAt": "2026-08-26T15:56:35.373Z"
+    },
+    {
+      "id": "SESS-9568d39e2098bee2fe631a9f83650018ca91fea4f31d372a",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:57:07.238Z",
+      "expiresAt": "2026-09-02T15:57:07.238Z",
+      "lastActivityAt": "2026-08-26T15:57:07.238Z"
+    },
+    {
+      "id": "SESS-0b94af729738aa21e58b7484e1d193b85d789a5616d3d39e",
+      "userId": "USR-85470",
+      "createdAt": "2026-08-26T15:57:07.274Z",
+      "expiresAt": "2026-09-02T15:57:07.274Z",
+      "lastActivityAt": "2026-08-26T15:57:07.274Z"
+    },
+    {
+      "id": "SESS-a91072c9dfe5fba6ae80fa3c1bd8d687912ce136b98abb2e",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:57:07.310Z",
+      "expiresAt": "2026-09-02T15:57:07.310Z",
+      "lastActivityAt": "2026-08-26T15:57:07.310Z"
+    },
+    {
+      "id": "SESS-33020a19f08bc54bfd7aac2221984e18c71ce8cd1f09349b",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:57:08.901Z",
+      "expiresAt": "2026-09-02T15:57:08.982Z",
+      "lastActivityAt": "2026-08-26T15:57:08.982Z"
+    },
+    {
+      "id": "SESS-5cdb44f85948d3f7dc893e14edabdf0360a698613299cf51",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T15:57:10.433Z",
+      "expiresAt": "2026-09-02T15:57:10.474Z",
+      "lastActivityAt": "2026-08-26T15:57:10.474Z"
+    },
+    {
+      "id": "SESS-4dada20cdea43e7b2cfac2a35849d301350668526df95098",
+      "userId": "USR-10001",
+      "createdAt": "2026-08-26T15:57:10.461Z",
+      "expiresAt": "2026-09-02T15:57:10.498Z",
+      "lastActivityAt": "2026-08-26T15:57:10.498Z"
+    },
+    {
+      "id": "SESS-7c2f16054e6ebd8139e44c518fd672ac824bc511a1443819",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T16:02:25.288Z",
+      "expiresAt": "2026-09-02T16:02:25.288Z",
+      "lastActivityAt": "2026-08-26T16:02:25.288Z"
+    },
+    {
+      "id": "SESS-6402f8f6886d6f91b3a5a8d0766e0afd7eb9b2a750b34880",
+      "userId": "USR-17884",
+      "createdAt": "2026-08-26T16:02:25.336Z",
+      "expiresAt": "2026-09-02T16:02:25.336Z",
+      "lastActivityAt": "2026-08-26T16:02:25.336Z"
+    },
+    {
+      "id": "SESS-6c6e5ca67d36211e1fb0ff93fe7a094ce9cac0808b67621b",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T16:02:25.374Z",
+      "expiresAt": "2026-09-02T16:02:25.374Z",
+      "lastActivityAt": "2026-08-26T16:02:25.374Z"
+    },
+    {
+      "id": "SESS-672676e3e8c1488dd69d5ee312e7a6283f8609ec1ef2f159",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T16:02:26.855Z",
+      "expiresAt": "2026-09-02T16:02:26.939Z",
+      "lastActivityAt": "2026-08-26T16:02:26.939Z"
+    },
+    {
+      "id": "SESS-2131d1fe1a63b93bac41ba02385854d4930fa3ba52f9b8c8",
+      "userId": "USR-10002",
+      "createdAt": "2026-08-26T16:02:28.367Z",
+      "expiresAt": "2026-09-02T16:02:28.409Z",
+      "lastActivityAt": "2026-08-26T16:02:28.409Z"
+    },
+    {
+      "id": "SESS-b4676ebe134af671192aa423409387f32cb0dc2253c33ae1",
+      "userId": "USR-10001",
+      "createdAt": "2026-08-26T16:02:28.395Z",
+      "expiresAt": "2026-09-02T16:02:28.440Z",
+      "lastActivityAt": "2026-08-26T16:02:28.440Z"
     }
   ],
   "auditLogs": [
+    {
+      "id": "AUDIT-580ACCB4",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-26T16:16:32.475Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-993CF005",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-26T16:02:26.891Z",
+      "metadata": {
+        "transactionId": "TXN-15E0E542",
+        "recipientAccount": "BA8823948210",
+        "amountPaise": 50000
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-816E1A21",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T16:02:25.390Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-21D6DACF",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T16:02:25.359Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-05F58AA1",
+      "userId": "USR-17884",
+      "userEmail": "testuser_1787760145319@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T16:02:25.342Z",
+      "metadata": {
+        "accountId": "ACC-72676"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-9FF1319F",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-26T15:57:08.937Z",
+      "metadata": {
+        "transactionId": "TXN-72F78089",
+        "recipientAccount": "BA8823948210",
+        "amountPaise": 50000
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-1212D08F",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:57:07.326Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-AB2F7C4B",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:57:07.295Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-95680297",
+      "userId": "USR-85470",
+      "userEmail": "testuser_1787759827264@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T15:57:07.277Z",
+      "metadata": {
+        "accountId": "ACC-93936"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-D1774555",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-26T15:56:33.801Z",
+      "metadata": {
+        "transactionId": "TXN-3B7DE4EB",
+        "recipientAccount": "BA8823948210",
+        "amountPaise": 50000
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-702CE797",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:56:32.198Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-1CEB2511",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:56:32.174Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-8CD2C7A4",
+      "userId": "USR-17466",
+      "userEmail": "testuser_1787759792152@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T15:56:32.161Z",
+      "metadata": {
+        "accountId": "ACC-56321"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-AC196B7E",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-26T15:48:33.486Z",
+      "metadata": {
+        "transactionId": "TXN-DA71BAB1",
+        "recipientAccount": "BA8823948210",
+        "amountPaise": 50000
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-CC1D999D",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:48:32.154Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-0CEB35F7",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "PASSWORD_RESET",
+      "timestamp": "2026-08-26T15:48:32.134Z",
+      "metadata": {
+        "note": "Password reset via authentication portal"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
+    {
+      "id": "AUDIT-96CA2808",
+      "userId": "USR-46408",
+      "userEmail": "testuser_1787759312116@example.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-26T15:48:32.124Z",
+      "metadata": {
+        "accountId": "ACC-38175"
+      },
+      "ip": "::ffff:127.0.0.1"
+    },
     {
       "id": "AUDIT-650E02B9",
       "userId": "USR-10002",
@@ -859,6 +1359,6 @@
     "application": "Bank of AMR",
     "version": "1.0.0",
     "mode": "simulation",
-    "lastSavedAt": "2026-08-26T04:20:50.170Z"
+    "lastSavedAt": "2026-08-26T16:16:32.475Z"
   }
 }

@@ -47,13 +47,22 @@ async function startServer() {
   await persistenceService.init();
 
   if (process.env.NODE_ENV !== 'test') {
-    app.listen(CONFIG.PORT, () => {
+    const server = app.listen(CONFIG.PORT, () => {
       console.log(`====================================================`);
-      console.log(`  Bank of AMR — Insecure Training Server Online `);
+      console.log(`  Bank of AMR — Server Online `);
       console.log(`  Port: ${CONFIG.PORT}`);
       console.log(`  Mode: ${CONFIG.NODE_ENV}`);
-      console.log(`  LAB VULNERABILITIES: ENABLED — LOCAL USE ONLY`);
       console.log(`====================================================`);
+    });
+
+    server.on('error', (err: any) => {
+      if (err.code === 'EADDRINUSE') {
+        console.error(`\n❌ Error: Port ${CONFIG.PORT} is already in use by another process.`);
+        console.error(`👉 Please terminate the process using port ${CONFIG.PORT}.\n`);
+        process.exit(1);
+      } else {
+        console.error('Server error:', err);
+      }
     });
   }
 }

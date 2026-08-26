@@ -253,8 +253,15 @@ class PersistenceService {
 
     const writeTask = async () => {
       const jsonString = JSON.stringify(this.memoryCache, null, 2);
+      const tmpPath = `${this.filePath}.tmp`;
       try {
-        await fs.promises.writeFile(this.filePath, jsonString, 'utf-8');
+        await fs.promises.writeFile(tmpPath, jsonString, 'utf-8');
+        try {
+          await fs.promises.rename(tmpPath, this.filePath);
+        } catch {
+          await fs.promises.copyFile(tmpPath, this.filePath);
+          await fs.promises.unlink(tmpPath).catch(() => {});
+        }
       } catch (err) {
         console.error('Failed to write runtime.json:', err);
       }
