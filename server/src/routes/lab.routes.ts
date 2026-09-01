@@ -20,4 +20,38 @@ router.get('/debug/error', () => {
   throw new Error('Intentional Bank of AMR lab error: inspect the verbose response.');
 });
 
+// Hard: A08 Software and Data Integrity Failures — Unsigned State Restore
+router.post('/restore', async (req, res) => {
+  try {
+    const rawState = req.body;
+    if (!rawState || !rawState.users || !rawState.accounts) {
+      res.status(400).json({ success: false, error: { message: 'Invalid state payload.' } });
+      return;
+    }
+    // LAB ONLY: unvalidated state import without cryptographic signature verification
+    await persistenceService.saveState(rawState);
+    res.json({ success: true, message: 'Runtime state restored successfully without signature check.' });
+  } catch (err: any) {
+    res.status(500).json({ success: false, error: { message: err.message } });
+  }
+});
+
+// Hard: A10 Server-Side Request Forgery (SSRF) — Unvalidated Server HTTP Fetch
+router.get('/fetch-avatar', async (req, res) => {
+  const targetUrl = req.query.url as string;
+  if (!targetUrl) {
+    res.status(400).json({ success: false, error: { message: 'URL query parameter is required.' } });
+    return;
+  }
+  try {
+    // LAB ONLY: unvalidated SSRF fetch allowing internal IP access (127.0.0.1 / localhost)
+    const response = await fetch(targetUrl);
+    const contentType = response.headers.get('content-type') || 'text/plain';
+    const bodyText = await response.text();
+    res.type(contentType).send(bodyText);
+  } catch (err: any) {
+    res.status(500).json({ success: false, error: { message: `SSRF Fetch Failed: ${err.message}` } });
+  }
+});
+
 export default router;

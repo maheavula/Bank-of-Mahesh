@@ -8,8 +8,8 @@
       "status": "active",
       "phone": "+91 9876543210",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-26T16:02:28.391Z",
-      "lastLoginAt": "2026-08-26T16:02:28.391Z",
+      "updatedAt": "2026-08-31T18:03:05.500Z",
+      "lastLoginAt": "2026-08-31T18:03:05.500Z",
       "password": "Admin#2026!SecuredP@ss"
     },
     {
@@ -20,8 +20,8 @@
       "status": "active",
       "phone": "+91 9812345678",
       "createdAt": "2026-08-11T05:51:56.763Z",
-      "updatedAt": "2026-08-26T16:11:11.818Z",
-      "lastLoginAt": "2026-08-26T16:11:11.818Z",
+      "updatedAt": "2026-09-01T03:08:47.394Z",
+      "lastLoginAt": "2026-09-01T03:08:47.394Z",
       "password": "AmrCust#2026!Kumar"
     },
     {
@@ -167,6 +167,54 @@
       "createdAt": "2026-08-26T16:02:25.328Z",
       "updatedAt": "2026-08-26T16:02:25.328Z",
       "lastLoginAt": "2026-08-26T16:02:25.328Z"
+    },
+    {
+      "id": "USR-68552",
+      "name": "AMR",
+      "email": "amr@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "status": "active",
+      "phone": "9876543210",
+      "createdAt": "2026-08-31T13:48:13.539Z",
+      "updatedAt": "2026-08-31T14:12:57.314Z",
+      "lastLoginAt": "2026-08-31T14:12:57.314Z"
+    },
+    {
+      "id": "USR-83085",
+      "name": "AMR",
+      "email": "amr@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "status": "active",
+      "phone": "9876543210",
+      "createdAt": "2026-08-31T17:35:18.132Z",
+      "updatedAt": "2026-08-31T17:35:18.132Z",
+      "lastLoginAt": "2026-08-31T17:35:18.132Z"
+    },
+    {
+      "id": "USR-83507",
+      "name": "AMR",
+      "email": "amr@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "status": "active",
+      "phone": "9876543210",
+      "createdAt": "2026-08-31T17:39:34.737Z",
+      "updatedAt": "2026-08-31T18:05:35.775Z",
+      "lastLoginAt": "2026-08-31T18:05:35.775Z"
+    },
+    {
+      "id": "USR-16854",
+      "name": "Mahesh",
+      "email": "mahesh@gmail.com",
+      "password": "123456",
+      "role": "customer",
+      "status": "active",
+      "phone": "9876543210",
+      "createdAt": "2026-09-01T03:11:00.238Z",
+      "updatedAt": "2026-09-01T03:11:00.238Z",
+      "lastLoginAt": "2026-09-01T03:11:00.238Z"
     }
   ],
   "accounts": [
@@ -176,7 +224,7 @@
       "accountNumber": "BA7089123456",
       "accountType": "Savings",
       "currency": "INR",
-      "balance": 12150050,
+      "balance": 12004650,
       "status": "active",
       "createdAt": "2026-08-11T05:51:56.763Z"
     },
@@ -299,9 +347,101 @@
       "balance": 1000000,
       "status": "active",
       "createdAt": "2026-08-26T16:02:25.328Z"
+    },
+    {
+      "id": "ACC-23287",
+      "userId": "USR-68552",
+      "accountNumber": "BA3234876779",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 800000,
+      "status": "active",
+      "createdAt": "2026-08-31T13:48:13.539Z"
+    },
+    {
+      "id": "ACC-65955",
+      "userId": "USR-83085",
+      "accountNumber": "BA4543177733",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 900000,
+      "status": "active",
+      "createdAt": "2026-08-31T17:35:18.132Z"
+    },
+    {
+      "id": "ACC-49754",
+      "userId": "USR-83507",
+      "accountNumber": "BA4839044532",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 945400,
+      "status": "active",
+      "createdAt": "2026-08-31T17:39:34.737Z"
+    },
+    {
+      "id": "ACC-36375",
+      "userId": "USR-16854",
+      "accountNumber": "BA6311878055",
+      "accountType": "Savings",
+      "currency": "INR",
+      "balance": 1500000,
+      "status": "active",
+      "createdAt": "2026-09-01T03:11:00.238Z"
     }
   ],
   "transactions": [
+    {
+      "id": "TXN-79FDB0BF",
+      "senderAccountId": "ACC-36375",
+      "receiverAccountId": "ACC-10001",
+      "senderName": "Mahesh",
+      "receiverName": "AMR Kumar",
+      "amount": -500000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Simulated Money Transfer",
+      "createdAt": "2026-09-01T03:11:10.164Z"
+    },
+    {
+      "id": "TXN-2F35FA88",
+      "senderAccountId": "ACC-49754",
+      "receiverAccountId": "ACC-10001",
+      "senderName": "AMR",
+      "receiverName": "AMR Kumar",
+      "amount": 54600,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Simulated Money Transfer",
+      "createdAt": "2026-08-31T18:11:30.618Z"
+    },
+    {
+      "id": "TXN-C5EA7AF4",
+      "senderAccountId": "ACC-65955",
+      "receiverAccountId": "ACC-10001",
+      "senderName": "AMR",
+      "receiverName": "AMR Kumar",
+      "amount": 100000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "Simulated Money Transfer",
+      "createdAt": "2026-08-31T17:36:40.439Z"
+    },
+    {
+      "id": "TXN-FD82FA0D",
+      "senderAccountId": "ACC-23287",
+      "receiverAccountId": "ACC-10001",
+      "senderName": "AMR",
+      "receiverName": "AMR Kumar",
+      "amount": 200000,
+      "currency": "INR",
+      "type": "transfer",
+      "status": "completed",
+      "description": "<img src=x onerror=alert(1234567)>",
+      "createdAt": "2026-08-31T13:49:22.158Z"
+    },
     {
       "id": "TXN-15E0E542",
       "senderAccountId": "ACC-10001",
@@ -761,9 +901,222 @@
       "createdAt": "2026-08-26T16:02:28.395Z",
       "expiresAt": "2026-09-02T16:02:28.440Z",
       "lastActivityAt": "2026-08-26T16:02:28.440Z"
+    },
+    {
+      "id": "SESS-e3156ad194f402d3bfb226872bafc535dc38c91707ffd3b3",
+      "userId": "USR-83507",
+      "createdAt": "2026-08-31T17:46:58.372Z",
+      "expiresAt": "2026-09-07T17:46:58.372Z",
+      "lastActivityAt": "2026-08-31T17:46:58.372Z"
+    },
+    {
+      "id": "SESS-10e3839fbcf6f910c78da50d5a5f6708a849e34dfe4281d6",
+      "userId": "USR-83507",
+      "createdAt": "2026-08-31T17:50:44.799Z",
+      "expiresAt": "2026-09-07T17:50:44.799Z",
+      "lastActivityAt": "2026-08-31T17:50:44.799Z"
+    },
+    {
+      "id": "SESS-747c6df134d49428e20e863b0bbb1bce23f2c357bc260f4d",
+      "userId": "USR-16854",
+      "createdAt": "2026-09-01T03:11:00.242Z",
+      "expiresAt": "2026-09-08T03:11:12.889Z",
+      "lastActivityAt": "2026-09-01T03:11:12.889Z"
     }
   ],
   "auditLogs": [
+    {
+      "id": "AUDIT-97D0A121",
+      "userId": "USR-16854",
+      "userEmail": "mahesh@gmail.com",
+      "action": "TRANSFER",
+      "timestamp": "2026-09-01T03:11:10.167Z",
+      "metadata": {
+        "transactionId": "TXN-79FDB0BF",
+        "recipientAccount": "BA7089123456",
+        "amountPaise": -500000
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-58EA9F8F",
+      "userId": "USR-16854",
+      "userEmail": "mahesh@gmail.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-09-01T03:11:00.245Z",
+      "metadata": {
+        "accountId": "ACC-36375"
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-8215F681",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-09-01T03:09:21.119Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-B59DD4A5",
+      "userId": "USR-83507",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T18:15:17.163Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-2655C697",
+      "userId": "USR-83507",
+      "userEmail": "amr@gmail.com",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-31T18:11:30.625Z",
+      "metadata": {
+        "transactionId": "TXN-2F35FA88",
+        "recipientAccount": "BA7089123456",
+        "amountPaise": 54600
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-0938B4D6",
+      "userId": "USR-10001",
+      "userEmail": "admin@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T18:05:25.180Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-8528446B",
+      "userId": "USR-83507",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T18:02:53.497Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-39223C0F",
+      "userId": "USR-83507",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T17:45:43.692Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-F49D5003",
+      "userId": "USR-83507",
+      "userEmail": "amr@gmail.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-31T17:39:34.747Z",
+      "metadata": {
+        "accountId": "ACC-49754"
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-16381CE8",
+      "userId": "USR-83085",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T17:38:38.730Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-D6A57A50",
+      "userId": "USR-83085",
+      "userEmail": "amr@gmail.com",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-31T17:36:40.446Z",
+      "metadata": {
+        "transactionId": "TXN-C5EA7AF4",
+        "recipientAccount": "BA7089123456",
+        "amountPaise": 100000
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-08186BC8",
+      "userId": "USR-83085",
+      "userEmail": "amr@gmail.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-31T17:35:18.145Z",
+      "metadata": {
+        "accountId": "ACC-65955"
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-220A759F",
+      "userId": "USR-68552",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T14:17:59.980Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-F17500C1",
+      "userId": "USR-68552",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T14:12:07.177Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-06B8D9B1",
+      "userId": "USR-68552",
+      "userEmail": "amr@gmail.com",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T13:51:21.642Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-7E1245D8",
+      "userId": "USR-68552",
+      "userEmail": "amr@gmail.com",
+      "action": "TRANSFER",
+      "timestamp": "2026-08-31T13:49:22.162Z",
+      "metadata": {
+        "transactionId": "TXN-FD82FA0D",
+        "recipientAccount": "BA7089123456",
+        "amountPaise": 200000
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-35DAA43B",
+      "userId": "USR-68552",
+      "userEmail": "amr@gmail.com",
+      "action": "SIGNUP",
+      "timestamp": "2026-08-31T13:48:13.546Z",
+      "metadata": {
+        "accountId": "ACC-23287"
+      },
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-6A48E454",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T13:47:45.376Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-6343F64A",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T13:37:47.720Z",
+      "ip": "::1"
+    },
+    {
+      "id": "AUDIT-37D20125",
+      "userId": "USR-10002",
+      "userEmail": "customer@bankofamr.local",
+      "action": "LOGOUT",
+      "timestamp": "2026-08-31T13:28:53.015Z",
+      "ip": "::1"
+    },
     {
       "id": "AUDIT-580ACCB4",
       "userId": "USR-10002",
@@ -1359,6 +1712,6 @@
     "application": "Bank of AMR",
     "version": "1.0.0",
     "mode": "simulation",
-    "lastSavedAt": "2026-08-26T16:16:32.475Z"
+    "lastSavedAt": "2026-09-01T03:11:12.889Z"
   }
 }

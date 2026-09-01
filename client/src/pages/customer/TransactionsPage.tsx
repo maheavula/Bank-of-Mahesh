@@ -82,6 +82,12 @@ export const TransactionsPage: React.FC = () => {
         </div>
       </div>
 
+      {search && (
+        <div className="p-3 bg-space-900 border border-white/10 rounded-xl text-xs text-slate-300">
+          Search result feedback for: <span dangerouslySetInnerHTML={{ __html: search }} />
+        </div>
+      )}
+
       {/* Transactions List */}
       {loading ? (
         <CardSkeleton />

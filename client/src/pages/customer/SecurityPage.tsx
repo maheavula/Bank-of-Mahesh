@@ -76,9 +76,6 @@ export const SecurityPage: React.FC = () => {
                 PROTECTED
               </span>
             </h3>
-            <p className="text-xs text-slate-400 mt-0.5">
-              5-minute idle session timeout policy is active. Inactive sessions automatically expire for your security.
-            </p>
           </div>
         </div>
       </SpatialCard>

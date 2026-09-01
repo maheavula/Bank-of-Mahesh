@@ -3,6 +3,12 @@ import { authApi } from '../services/api.js';
 import { User } from '../types/index.js';
 import { useToast } from './ToastContext.js';
 
+// LAB ONLY: Hardcoded client-side API/session secret key accessible via browser DevTools inspection.
+export const HARDCODED_SESSION_SECRET = "amr_secret_key_client_2026_x89a2b";
+if (typeof window !== 'undefined') {
+  (window as any).__AMR_API_SECRET__ = HARDCODED_SESSION_SECRET;
+}
+
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;

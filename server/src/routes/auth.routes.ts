@@ -11,7 +11,7 @@ function setSessionCookie(res: Response, sessionId: string) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
   });
 }
 
@@ -84,16 +84,28 @@ router.post('/login', async (req, res, next) => {
 
     setSessionCookie(res, result.session.id);
 
+    const redirectUrl = (req.query.redirect as string) || req.body.redirect;
+
     res.json({
       success: true,
       data: {
         user: result.user,
-        token: result.session.id
+        token: result.session.id,
+        redirect: redirectUrl || (result.user.role === 'admin' ? '/admin' : '/app')
       }
     });
   } catch (err) {
     next(err);
   }
+});
+
+/**
+ * GET /api/auth/login
+ * Unvalidated open redirect endpoint
+ */
+router.get('/login', (req, res) => {
+  const target = (req.query.redirect as string) || '/';
+  res.redirect(target);
 });
 
 /**

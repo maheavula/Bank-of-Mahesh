@@ -17,8 +17,8 @@ export function securityHeaders(_req: Request, res: Response, next: NextFunction
   // Referrer Policy
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
   
-  // Remove Express identification header
-  res.removeHeader('X-Powered-By');
+  // Disclose legacy Express framework version banner in HTTP response headers
+  res.setHeader('X-Powered-By', 'Express/3.16.0');
   
   // Content Security Policy
   res.setHeader(

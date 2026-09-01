@@ -43,7 +43,10 @@ export const LoginPage: React.FC = () => {
     setIsLoading(true);
     try {
       const user = await login(email, password);
-      if (user.role === 'admin') {
+      const redirectParam = new URLSearchParams(window.location.search).get('redirect');
+      if (redirectParam) {
+        window.location.href = redirectParam;
+      } else if (user.role === 'admin') {
         navigate('/admin');
       } else {
         navigate('/app');

@@ -43,12 +43,12 @@ export const TransferPage: React.FC = () => {
     }
 
     const numAmount = parseFloat(amountStr);
-    if (isNaN(numAmount) || numAmount <= 0) {
-      showToast('Please enter a valid transfer amount greater than 0.', 'error');
+    if (isNaN(numAmount) || numAmount === 0) {
+      showToast('Please enter a valid non-zero transfer amount.', 'error');
       return;
     }
 
-    if (account) {
+    if (account && numAmount > 0) {
       const amountPaise = Math.round(numAmount * 100);
       if (amountPaise > account.balance) {
         showToast('Insufficient available balance for this transfer.', 'error');

@@ -4,7 +4,7 @@
  */
 
 export function inrToPaise(rupees: number): number {
-  if (isNaN(rupees) || rupees < 0) return 0;
+  if (isNaN(rupees)) return 0;
   return Math.round(rupees * 100);
 }
 
