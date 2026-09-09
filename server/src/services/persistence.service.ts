@@ -154,67 +154,12 @@ class PersistenceService {
       createdAt: now
     };
 
-    const yesterday = new Date(Date.now() - 86400000).toISOString();
-    const twoDaysAgo = new Date(Date.now() - 172800000).toISOString();
-    const threeDaysAgo = new Date(Date.now() - 259200000).toISOString();
-
-    const sampleTransactions: Transaction[] = [
-      {
-        id: 'TXN-A1B2C3',
-        senderAccountId: priyaAccount.id,
-        receiverAccountId: amrAccount.id,
-        senderName: priyaUser.name,
-        receiverName: amrUser.name,
-        amount: 250000, // ₹2,500.00
-        currency: 'INR',
-        type: 'transfer',
-        status: 'completed',
-        description: 'Consulting project fee',
-        createdAt: yesterday
-      },
-      {
-        id: 'TXN-D4E5F6',
-        senderAccountId: amrAccount.id,
-        receiverAccountId: rahulAccount.id,
-        senderName: amrUser.name,
-        receiverName: rahulUser.name,
-        amount: 150000, // ₹1,500.00
-        currency: 'INR',
-        type: 'transfer',
-        status: 'completed',
-        description: 'Dinner reimbursement',
-        createdAt: twoDaysAgo
-      },
-      {
-        id: 'TXN-G7H8I9',
-        senderAccountId: rahulAccount.id,
-        receiverAccountId: amrAccount.id,
-        senderName: rahulUser.name,
-        receiverName: amrUser.name,
-        amount: 500000, // ₹5,000.00
-        currency: 'INR',
-        type: 'transfer',
-        status: 'completed',
-        description: 'Shared trip expense',
-        createdAt: threeDaysAgo
-      }
-    ];
-
     return {
       users: [adminUser, amrUser, priyaUser, rahulUser],
       accounts: [amrAccount, priyaAccount, rahulAccount],
-      transactions: sampleTransactions,
+      transactions: [],
       sessions: [],
-      auditLogs: [
-        {
-          id: 'AUDIT-INIT',
-          userId: adminUser.id,
-          userEmail: adminUser.email,
-          action: 'SIGNUP',
-          timestamp: now,
-          metadata: { note: 'Seed data initialized' }
-        }
-      ],
+      auditLogs: [],
       metadata: {
         application: 'Bank of AMR',
         version: '1.0.0',
