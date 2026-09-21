@@ -101,13 +101,54 @@ jobs:
             ls -la zap/reports/ || echo "Reports directory empty"
           fi
 
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Claude CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Install triage requirements
+        run: |
+          pip install -r agents/triage/requirements.txt
+
+      - name: Run triage analysis with Claude
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          echo "Running Claude analysis on findings..."
+          
+          if [ -f "zap/reports/authenticated-scan.json" ]; then
+            python3 agents/triage/triage.py \
+              zap/reports/authenticated-scan.json \
+              --out-dir triage
+            echo "✅ Analysis complete"
+          else
+            echo "⚠️ No scan report found"
+          fi
+
       - name: Upload scan report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: authenticated-dast-report
-          path: zap/reports/
+          name: dast-scan-and-analysis
+          path: |
+            zap/reports/
+            triage/
           retention-days: 30
+
+      - name: Show results summary
+        if: always()
+        run: |
+          echo "📊 SCAN RESULTS"
+          echo "=============="
+          if [ -f "zap/reports/authenticated-scan.json" ]; then
+            echo "✅ ZAP Report: zap/reports/authenticated-scan.json"
+          fi
+          if [ -f "triage/analysis.md" ]; then
+            echo "✅ Claude Analysis: triage/analysis.md"
+          fi
 
       - name: Cleanup
         if: always()
