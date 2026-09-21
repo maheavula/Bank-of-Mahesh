@@ -1,0 +1,66 @@
+name: DAST Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  DOCKER_IMAGE_NAME: "Bankofmahesh"
+  DOCKER_IMAGE_TAG: "latest"
+  TARGET_CONTAINER: "Bankofmahesh"
+
+jobs:
+  build-and-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -t ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} .
+
+      - name: Start the app
+        run: |
+          docker run -d \
+            --name ${{ env.TARGET_CONTAINER }} \
+            -p 3000:3000 \
+            ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
+          
+          # Wait for app to start
+          sleep 10
+          for i in {1..30}; do
+            if curl -sf http://localhost:3000 > /dev/null; then
+              echo "App is running"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "App failed to start"
+          exit 1
+
+      - name: Run ZAP baseline scan
+        run: |
+          mkdir -p zap/reports
+          docker run --rm \
+            --network host \
+            -v "$PWD/zap/reports:/zap/wrk:rw" \
+            zaproxy/zap-stable:latest \
+            zap-baseline.py \
+              -t http://localhost:3000 \
+              -J zap-report.json
+
+      - name: Upload ZAP report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: zap-baseline
+          path: zap/reports/
+
+      - name: Cleanup
+        if: always()
+        run: docker stop ${{ env.TARGET_CONTAINER }} || true
