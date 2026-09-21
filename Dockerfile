@@ -15,6 +15,12 @@ RUN npm install \
 # Copy the application source after dependencies are installed
 COPY . .
 
-EXPOSE 5173 3000
+# Vite serves the UI on 5173; Express serves the API on 5000.
+EXPOSE 5173 5000
+
+# The client script already binds Vite to 0.0.0.0:5173 and proxies /api to
+# the Express server on 127.0.0.1:5000 inside this container.
+ENV PORT=5000
+ENV CLIENT_URL=http://localhost:5173
 
 CMD ["npm", "run", "dev"]
