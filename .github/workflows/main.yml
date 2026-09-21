@@ -1,4 +1,4 @@
-name: DAST Scan
+name: DAST - Authenticated Scan
 
 on:
   push:
@@ -7,14 +7,16 @@ on:
     branches: [main]
 
 env:
-  DOCKER_IMAGE_NAME: "Bankofmahesh"
+  DOCKER_IMAGE_NAME: "bankofmahesh"
   DOCKER_IMAGE_TAG: "latest"
-  TARGET_CONTAINER: "Bankofmahesh"
+  TARGET_CONTAINER: "bankofmahesh"
+  TARGET_URL: "http://localhost:5173"
+  TARGET_PORT: "5173"
 
 jobs:
-  build-and-scan:
+  authenticated-scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     
     steps:
       - name: Checkout code
@@ -28,39 +30,87 @@ jobs:
         run: |
           docker run -d \
             --name ${{ env.TARGET_CONTAINER }} \
-            -p 3000:3000 \
+            -p ${{ env.TARGET_PORT }}:5173 \
             ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }}
           
-          # Wait for app to start
-          sleep 10
-          for i in {1..30}; do
-            if curl -sf http://localhost:3000 > /dev/null; then
-              echo "App is running"
+          echo "Waiting for app to start..."
+          for i in {1..60}; do
+            if curl -sf ${{ env.TARGET_URL }} > /dev/null 2>&1; then
+              echo "✅ App is running on port ${{ env.TARGET_PORT }}"
               exit 0
             fi
-            sleep 2
+            echo "Attempt $i/60: App not ready yet, waiting..."
+            sleep 3
           done
-          echo "App failed to start"
+          echo "❌ App failed to start after 180 seconds"
+          docker logs ${{ env.TARGET_CONTAINER }}
           exit 1
 
-      - name: Run ZAP baseline scan
+      - name: Verify login works
+        env:
+          USERNAME: ${{ secrets.APP_USERNAME }}
+          PASSWORD: ${{ secrets.APP_PASSWORD }}
+        run: |
+          echo "Testing login with provided credentials..."
+          RESPONSE=$(curl -s -X POST ${{ env.TARGET_URL }}/api/auth/login \
+            -H "Content-Type: application/json" \
+            -d "{\"email\":\"$USERNAME\",\"password\":\"$PASSWORD\"}" \
+            -w "\n%{http_code}")
+          
+          HTTP_CODE=$(echo "$RESPONSE" | tail -n1)
+          BODY=$(echo "$RESPONSE" | head -n-1)
+          
+          echo "HTTP Status: $HTTP_CODE"
+          echo "Response: $BODY"
+          
+          if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "201" ]; then
+            echo "✅ Login successful"
+          else
+            echo "⚠️ Login check returned HTTP $HTTP_CODE (may still work in ZAP)"
+          fi
+
+      - name: Run authenticated ZAP scan
+        env:
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: |
           mkdir -p zap/reports
+          chmod 777 zap/reports
+          
+          echo "Starting ZAP authenticated scan..."
           docker run --rm \
             --network host \
-            -v "$PWD/zap/reports:/zap/wrk:rw" \
+            -v "$PWD/zap:/zap/wrk:rw" \
+            -e APP_USERNAME="$APP_USERNAME" \
+            -e APP_PASSWORD="$APP_PASSWORD" \
+            -e JAVA_OPTS="-Xmx4g" \
             zaproxy/zap-stable:latest \
-            zap-baseline.py \
-              -t http://localhost:3000 \
-              -J zap-report.json
+            zap.sh -cmd -autorun /zap/wrk/plans/02-authenticated-active.yaml
+          
+          echo "ZAP scan completed"
 
-      - name: Upload ZAP report
+      - name: Check scan results
+        if: always()
+        run: |
+          if [ -f "zap/reports/authenticated-scan.json" ]; then
+            echo "✅ Scan report generated successfully"
+            ALERT_COUNT=$(grep -o '"alert"' zap/reports/authenticated-scan.json | wc -l)
+            echo "Found $ALERT_COUNT security alerts"
+          else
+            echo "⚠️ No scan report found - authentication may have failed"
+            ls -la zap/reports/ || echo "Reports directory empty"
+          fi
+
+      - name: Upload scan report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: zap-baseline
+          name: authenticated-dast-report
           path: zap/reports/
+          retention-days: 30
 
       - name: Cleanup
         if: always()
-        run: docker stop ${{ env.TARGET_CONTAINER }} || true
+        run: |
+          docker stop ${{ env.TARGET_CONTAINER }} 2>/dev/null || true
+          docker rm ${{ env.TARGET_CONTAINER }} 2>/dev/null || true
