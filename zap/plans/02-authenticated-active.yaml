@@ -1,0 +1,81 @@
+---
+env:
+  contexts:
+    - name: "app"
+      urls:
+        - "http://localhost:5173"
+      includePaths:
+        - "http://localhost:5173.*"
+      excludePaths:
+        - ".*/logout.*"
+        - ".*/signout.*"
+
+      authentication:
+        method: "json"
+        parameters:
+          loginPageUrl: "http://localhost:5173/login"
+          loginRequestUrl: "http://localhost:5173/api/auth/login"
+          loginRequestBody: '{"email":"{%username%}","password":"{%password%}"}'
+
+      verification:
+        method: "response"
+        loggedInRegex: "Real-time liquidity overview, instant transfer terminal, and executive ledger."
+        loggedOutRegex: "Welcome back to Bank of AMR"
+
+      sessionManagement:
+        method: "cookie"
+
+      users:
+        - name: "scan-user"
+          credentials:
+            username: "${APP_USERNAME}"
+            password: "${APP_PASSWORD}"
+
+  parameters:
+    failOnError: true
+    progressToStdout: true
+
+jobs:
+  - type: passiveScan-config
+    parameters:
+      maxAlertsPerRule: 10
+      scanOnlyInScope: true
+
+  - type: requestor
+    parameters:
+      user: "scan-user"
+    requests:
+      - url: "http://localhost:5173"
+        method: "GET"
+        responseCode: 200
+
+  - type: spider
+    parameters:
+      context: "app"
+      user: "scan-user"
+      maxDuration: 5
+      maxDepth: 10
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 5
+
+  - type: activeScan
+    parameters:
+      context: "app"
+      user: "scan-user"
+      policy: "Default Policy"
+      maxScanDurationInMins: 20
+      threadPerHost: 5
+
+  - type: report
+    parameters:
+      template: "traditional-json-plus"
+      reportDir: "/zap/wrk/reports"
+      reportFile: "authenticated-scan"
+      reportTitle: "Authenticated DAST Scan"
+    risks: ["low", "medium", "high"]
+
+  - type: exitStatus
+    parameters:
+      errorLevel: "high"
